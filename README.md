@@ -16,7 +16,7 @@
 
 ### Association
 - has_many : items
-- belongs_to : address
+- has_one : address
 
 ## images テーブル
 
@@ -45,7 +45,7 @@
 |------|----|-------|
 |name|string|null: false index:true|
 |text|text|null: false|
-|status|string|null: false|
+|status|integer|null: false|
 |fee|integer|null: false|
 |area|string|null: false|
 |shipping-date|date|null: false|
