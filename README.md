@@ -16,6 +16,7 @@
 
 ### Association
 - has_many : items
+- has_many : cards
 - has_one : address
 
 ## images テーブル
@@ -66,3 +67,13 @@
 
 ### Association
 - has_many :items
+
+## cards テーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|string|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+
+### Association
+- belongs_to :user
