@@ -22,7 +22,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|url|integer|null: false|
+|url|string|null: false|
 |item|references|null: false, foreign_key: true|
 
 ### Association
@@ -32,10 +32,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|address|integer|null: false|
-|postalcode|integer|null: false|
-|prefecture|integer|null: false|
-|municipality|integer|null: false|
+|postalcode|string|null: false|
+|prefecture|string|null: false|
+|municipality|string|null: false|
 
 ### Association
 - belongs_to : user
@@ -64,7 +63,6 @@
 |------|----|-------|
 |name|string|null: false index:true|
 |ancestry|||
-|string|null: false index:true|
 
 ### Association
 - has_many :items
