@@ -1,24 +1,44 @@
-# README
+## users テーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false index:true|
+|email|string|null: false|
+|password|string|null: false|
+|firstname|string|null: false|
+|lastname|string|null: false|
+|furigana-firstname|string|null: false|
+|furigana-lastname|string|null: false|
+|birthday|integer|null: false|
+|send-firstname|string|null: false|
+|send-lastname|string|null: false|
+|send-furigana-firstname|string|null: false|
+|send-furigana-lastname|string|null: false|
+|postalcode|integer|null: false|
+|prefecture|string|null: false|
+|municipality|string|null: false|
+|address|string|null: false|
+|item|references|null: false, foreign_key: true|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+### Association
+- has_many :items
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+## items テーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|image|string||
+|name|string|null: false index:true|
+|text|text||
+|category|string|null: false|
+|status|string|null: false|
+|fee|integer|null: false|
+|area|string|null: false|
+|shipping-date|date|null: false|
+|price|integer|null: false|
+|user|references|null: false, foreign_key: true|
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :user
