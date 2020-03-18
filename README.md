@@ -33,7 +33,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |postalcode|string|null: false|
-|prefecture|string|null: false|
+|prefecture|integer|null: false|
 |municipality|string|null: false|
 
 ### Association
