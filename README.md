@@ -1,44 +1,47 @@
-## users テーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false index:true|
-|email|string|null: false|
-|password|string|null: false|
-|firstname|string|null: false|
-|lastname|string|null: false|
-|furigana-firstname|string|null: false|
-|furigana-lastname|string|null: false|
-|birthday|integer|null: false|
-|send-firstname|string|null: false|
-|send-lastname|string|null: false|
-|send-furigana-firstname|string|null: false|
-|send-furigana-lastname|string|null: false|
-|postalcode|integer|null: false|
-|prefecture|string|null: false|
-|municipality|string|null: false|
-|address|string|null: false|
-|item|references|null: false, foreign_key: true|
-
+|name|string|null:false index:true|
+|pass|integer|null: false|
+|mail|string|null: false|
 
 ### Association
-- has_many :items
+- has_many : groups, through: :groups_users
+- has_many : groups_users
+- has_many : messages
 
 
-
-## items テーブル
-
+## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string||
-|name|string|null: false index:true|
 |text|text||
-|category|string|null: false|
-|status|string|null: false|
-|fee|integer|null: false|
-|area|string|null: false|
-|shipping-date|date|null: false|
-|price|integer|null: false|
+|image|text||
 |user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
+- belongs_to :user
+- belongs_to :group
+
+
+## groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+
+### Association
+- has_many : users, through: :groups_users
+- has_many : groups_users
+- has_many : messages
+
+
+
+## groups_usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :group
 - belongs_to :user
