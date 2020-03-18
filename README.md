@@ -35,7 +35,9 @@
 |------|----|-------|
 |postalcode|string|null: false|
 |prefecture|integer|null: false|
-|municipality|string|null: false|
+|city_town|string|null: false|
+|building_name|string||
+|user|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to : user
@@ -71,7 +73,7 @@
 ## cards テーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|string|null: false|
+|user|references|null: false, foreign_key: true|
 |customer_id|string|null: false|
 |card_id|string|null: false|
 
