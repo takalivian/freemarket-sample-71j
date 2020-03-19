@@ -12,11 +12,15 @@
     .header__inner__nav
       .header__inner__nav__list-left
         .header__inner__nav__list-left__category
-          カテゴリー
+          = link_to "#", class: "btn-category" do
+            カテゴリー
         .header__inner__nav__list-left__brand
-          ブランド
+          = link_to "#", class: "btn-brand" do
+            ブランド
       .header__inner__nav__list-right
         .header__inner__nav__list-right__login
-          ログイン
+          = link_to "#", class: "btn-login" do
+            ログイン
         .header__inner__nav__list-right__login-new
-          新規会員登録
+          = link_to "#", class: "btn-login-new" do
+            新規会員登録
