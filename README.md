@@ -1,24 +1,81 @@
-# README
+## users テーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null: false index:true|
+|email|string|null: false|
+|password|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|birthday|string|null: false|
+|send_first_name|string|null: false|
+|send_last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|send_first_name_kana|string|null: false|
+|send_last_name_kana|string|null: false|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Association
+- has_many : items
+- has_many : cards
+- has_one : address
 
-Things you may want to cover:
+## images テーブル
 
-* Ruby version
+|Column|Type|Options|
+|------|----|-------|
+|url|string|null: false|
+|item|references|null: false, foreign_key: true|
 
-* System dependencies
+### Association
+- belongs_to : item
 
-* Configuration
+## addresses テーブル
 
-* Database creation
+|Column|Type|Options|
+|------|----|-------|
+|postalcode|string|null: false|
+|prefecture|integer|null: false|
+|city_town|string|null: false|
+|building_name|string||
+|user|references|null: false, foreign_key: true|
 
-* Database initialization
+### Association
+- belongs_to : user
 
-* How to run the test suite
+## items テーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false index:true|
+|text|text|null: false|
+|status|integer|null: false|
+|fee|integer|null: false|
+|area|string|null: false|
+|shipping-date|date|null: false|
+|price|integer|null: false|
+|user|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 
-* Deployment instructions
+### Association
+- belongs_to :user
+- belongs_to :category
+- has_many :images
 
-* ...
+## categories テーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false index:true|
+|ancestry|||
+
+### Association
+- has_many :items
+
+## cards テーブル
+|Column|Type|Options|
+|------|----|-------|
+|user|references|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
+
+### Association
+- belongs_to :user
