@@ -16,6 +16,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :last_name_kana,       null: false
       t.string :send_first_name_kana, null: false
       t.string :send_last_name_kana,  null: false
+      # addresカラム未作成のためuserカラムに仮置き
+      # t.integer :delivery_area, null: false, default: 0
 
       ## Recoverable
       t.string   :reset_password_token
