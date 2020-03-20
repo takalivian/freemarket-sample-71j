@@ -1,10 +1,10 @@
-.new-user
-  .new-user__header
-  .new-user__main
-    .new-user__main__box
-      .new-user__main__box__top
+.user-contents
+  .user-contents__header
+  .user-contents__main
+    .user-contents__main__box
+      .user-contents__main__box__top
         会員情報入力
-      .new-user__main__box__input
+      .user-contents__main__box__input
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = render "devise/shared/error_messages", resource: resource
           .field
@@ -45,5 +45,5 @@
             %br/
             = f.text_field :birthday, class: 'input-default', placeholder: "例)19990405"
           .actions
-            = f.submit "次へ進む", class: 'next-btn'
-  .new-user__footer
+            = f.submit "次へ進む", class: 'submit-btn'
+  .user-contents__footer
