@@ -1,0 +1,49 @@
+.new-user
+  .new-user__header
+  .new-user__main
+    .new-user__main__box
+      .new-user__main__box__top
+        会員情報入力
+      .new-user__main__box__input
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .field
+            = f.label :ニックネーム
+            %span.required 必須
+            %br/
+            = f.text_field :nickname, class: 'input-default', placeholder: "例)フリマ太郎"
+          .field
+            = f.label :メールアドレス
+            %span.required 必須
+            %br/
+            = f.email_field :email, class: 'input-default', placeholder: "PC・携帯どちらでも可"
+          .field
+            = f.label :パスワード
+            %span.required 必須
+            %br/
+            = f.password_field :password, class: 'input-default', placeholder: "7(6になってるよ)文字以上の半角英数"
+          .field
+            = f.label :パスワード（確認用）
+            %span.required 必須
+            %br/
+            = f.password_field :password_confirmation, class: 'input-default', placeholder: "確認のためもう一度入力してください"
+          .field
+            = f.label :本名（全角）
+            %span.required 必須
+            %br/
+            = f.text_field :last_name, class: 'input-half', placeholder: "例)田中"
+            = f.text_field :first_name, class: 'input-half', placeholder: "例)太郎"
+          .field
+            = f.label :本名（ふりがな）
+            %span.required 必須
+            %br/
+            = f.text_field :last_name_kana, class: 'input-half', placeholder: "例)たなか"
+            = f.text_field :first_name_kana, class: 'input-half', placeholder: "例)たろう"
+          .field
+            = f.label :生年月日
+            %span.required 必須
+            %br/
+            = f.text_field :birthday, class: 'input-default', placeholder: "例)19990405"
+          .actions
+            = f.submit "次へ進む", class: 'next-btn'
+  .new-user__footer
