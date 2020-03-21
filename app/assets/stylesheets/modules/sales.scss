@@ -1,0 +1,323 @@
+.sale-page{
+  width: 100vw;
+  background-color: whitesmoke;
+  height: 1800px;
+  &__furima-icon{
+    height: 130px;
+    padding: 30px;
+    &__icon-box{
+      width: 230px;
+      height: 65px;
+      background-image: url("logo.png");
+      background-size:cover;
+      margin: auto;
+      line-height: 130px;
+    }
+  }
+  &__sale{
+    width: 700px;
+    background-color: white;
+    margin: auto;
+    font-size: 14px;
+// 画像
+    &__sale-image-box{
+      padding: 40px;
+      &__title-box{
+        display: flex;
+        font-weight: bold;
+        &__title{
+          margin-right: 10px;
+        }
+        &__required{
+          background-color: #ff0211;
+          color: #fff;
+          font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+          font-size: 13px;
+          height: 18px;
+          padding: 0 5px;
+          margin-top: 2px;
+          border-radius: 3px;
+        }
+      }
+      &__description{
+        margin-top: 10px;
+        opacity: 0.7;
+      }
+      &__image-form{
+        margin-top: 10px;
+      }
+    }
+// 商品名
+    &__sale-item-box{
+      padding: 40px;
+      &__item-top{
+        &__title-box{
+          display: flex;
+          font-weight: bold;
+          &__title{
+            margin-right: 10px;
+          }
+          &__required{
+            background-color: #ff0211;
+            color: #fff;
+            font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size: 13px;
+            height: 18px;
+            padding: 0 5px;
+            margin-top: 2px;
+            border-radius: 3px;
+          }
+        }
+        &__text{
+          margin-top: 16px;
+        }
+      }
+      &__item-bottom{
+        margin-top: 32px;
+        &__title-box{
+          display: flex;
+          font-weight: bold;
+          &__title{
+            margin-right: 10px;
+          }
+          &__required{
+            background-color: #ff0211;
+            color: #fff;
+            font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size: 13px;
+            height: 18px;
+            padding: 0 5px;
+            margin-top: 2px;
+            border-radius: 3px;
+          }
+        }
+        &__text{
+          margin-top: 16px;
+        }
+      }
+    }
+// 詳細
+    &__sale-date-box{
+      padding: 40px;
+      &__date-title{
+        color: rgb(136, 136, 136);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin-bottom: 24px;
+      }
+      &__date-top{
+        margin-top: 32px;
+        &__title-box{
+          display: flex;
+          font-weight: bold;
+          &__title{
+            margin-right: 10px;
+          }
+          &__required{
+            background-color: #ff0211;
+            color: #fff;
+            font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size: 13px;
+            height: 18px;
+            padding: 0 5px;
+            margin-top: 2px;
+            border-radius: 3px;
+          }
+        }
+        &__text{
+          margin-top: 16px;
+        }
+      }
+      &__date-center{
+        margin-top: 32px;
+        &__title-box{
+          display: flex;
+          font-weight: bold;
+          &__title{
+            margin-right: 10px;
+          }
+          &__required{
+            background-color: #bfbfbf;
+            color: #fff;
+            font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size: 13px;
+            height: 18px;
+            padding: 0 5px;
+            margin-top: 2px;
+            border-radius: 3px;
+          }
+        }
+        &__text{
+          margin-top: 16px;
+        }
+
+      }
+      &__date-bottom{
+        margin-top: 32px;
+        &__title-box{
+          display: flex;
+          font-weight: bold;
+          &__title{
+            margin-right: 10px;
+          }
+          &__required{
+            background-color: #ff0211;
+            color: #fff;
+            font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size: 13px;
+            height: 18px;
+            padding: 0 5px;
+            margin-top: 2px;
+            border-radius: 3px;
+          }
+        }
+        &__text{
+          margin-top: 16px;
+        }
+
+      }
+    }
+// 配送
+    &__sale-delivery-box{
+      padding: 40px;
+      &__delivery-title{
+        color: rgb(136, 136, 136);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin-bottom: 24px;
+      }
+      &__delivery-top{
+        margin-top: 32px;
+        &__title-box{
+          display: flex;
+          font-weight: bold;
+          &__title{
+            margin-right: 10px;
+          }
+          &__required{
+            background-color: #ff0211;
+            color: #fff;
+            font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size: 13px;
+            height: 18px;
+            padding: 0 5px;
+            margin-top: 2px;
+            border-radius: 3px;
+          }
+        }
+        &__text{
+          margin-top: 16px;
+        }
+      }
+      &__delivery-center{
+        margin-top: 32px;
+        &__title-box{
+          display: flex;
+          font-weight: bold;
+          &__title{
+            margin-right: 10px;
+          }
+          &__required{
+            background-color: #ff0211;
+            color: #fff;
+            font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size: 13px;
+            height: 18px;
+            padding: 0 5px;
+            margin-top: 2px;
+            border-radius: 3px;
+          }
+        }
+        &__text{
+          margin-top: 16px;
+        }
+      }
+      &__delivery-bottom{
+        margin-top: 32px;
+        &__title-box{
+          display: flex;
+          font-weight: bold;
+          &__title{
+            margin-right: 10px;
+          }
+          &__required{
+            background-color: #ff0211;
+            color: #fff;
+            font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+            font-size: 13px;
+            height: 18px;
+            padding: 0 5px;
+            margin-top: 2px;
+            border-radius: 3px;
+          }
+        }
+        &__text{
+          margin-top: 16px;
+        }
+      }
+    }
+// 価格
+    &__sale-price-box{
+      padding: 40px;
+      &__price-title{
+        color: rgb(136, 136, 136);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.4em;
+        margin-bottom: 24px;
+      }
+      &__title-box{
+        display: flex;
+        font-weight: bold;
+        &__title{
+          margin-right: 10px;
+        }
+        &__required{
+          background-color: #ff0211;
+          color: #fff;
+          font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+          font-size: 13px;
+          height: 18px;
+          padding: 0 5px;
+          margin-top: 2px;
+          border-radius: 3px;
+        }
+      }
+      &__text{
+        margin-top: 16px;
+      }
+    }
+// 出品ボタン
+    &__sale-form-box{
+      padding: 40px;
+      &__form-up{
+        background-color: #ea352d;
+        color: #fff;
+        height: 50px;
+        width: 50%;
+        margin: auto;
+        text-align: center;
+        line-height: 50px;
+        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+      }
+      &__form-return{
+        text-align: center;
+        margin: 15px 0 25px 0;
+        font-size: 15px;
+        a{
+          color: cornflowerblue;
+        }
+      }
+      &__form-legend{
+      }
+    }
+  }
+}
+
+
+
