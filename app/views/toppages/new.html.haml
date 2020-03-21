@@ -1,6 +1,7 @@
 .sale-page
   .sale-page__furima-icon
-    .sale-page__furima-icon__icon-box
+    = link_to root_path do
+      .sale-page__furima-icon__icon-box
   .sale-page__sale
     = form_with(model: @toppage, local: true) do |form|
       .sale-page__sale__sale-image-box
@@ -12,7 +13,9 @@
         .sale-page__sale__sale-image-box__description
           最大10枚までアップロードできます
         .sale-page__sale__sale-image-box__image-form
-          写真
+          = form.label :image, class: 'image' do
+            = icon('fas', 'camera', class: 'image__icon')
+            = form.file_field :image, class: 'file'
       .sale-page__sale__sale-item-box
         .sale-page__sale__sale-item-box__item-top
           .sale-page__sale__sale-item-box__item-top__title-box
@@ -100,9 +103,9 @@
       
       .sale-page__sale__sale-form-box
         .sale-page__sale__sale-form-box__form-up
-          出品する
+          = form.submit :出品する, class: 'post-btn'
         .sale-page__sale__sale-form-box__form-return
-          = link_to "#" do
+          = link_to root_path do
             もどる
         .sale-page__sale__sale-form-box__form-legend
           禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

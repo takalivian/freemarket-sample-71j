@@ -1,7 +1,7 @@
 .sale-page{
   width: 100vw;
   background-color: whitesmoke;
-  height: 2000px;
+  height: 2100px;
   &__furima-icon{
     height: 130px;
     padding: 30px;
@@ -46,6 +46,14 @@
       }
       &__image-form{
         margin-top: 10px;
+        .fa-camera{
+          font-size: 60px;
+          cursor: pointer;
+          cursor: hand;
+        }
+        input{
+          display: none;
+        }
       }
     }
 // 商品名
@@ -356,21 +364,25 @@
     &__sale-form-box{
       padding: 40px;
       &__form-up{
-        background-color: #ea352d;
-        color: #fff;
-        height: 50px;
-        width: 50%;
-        margin: auto;
-        text-align: center;
-        line-height: 50px;
-        font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-        border-radius: 10px;
-        font-size: 20px;
-        font-weight: bold;
+        .post-btn{
+          background-color: #ea352d;
+          color: #fff;
+          height: 50px;
+          width: 50%;
+          text-align: center;
+          line-height: 50px;
+          font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+          border-radius: 10px;
+          font-size: 20px;
+          font-weight: bold;
+          margin-left: 160px;
+          cursor: pointer;
+          cursor: hand;
+        }
       }
       &__form-return{
         text-align: center;
-        margin: 15px 0 25px 0;
+        margin: 25px 0 25px 0;
         font-size: 15px;
         a{
           color: cornflowerblue;
