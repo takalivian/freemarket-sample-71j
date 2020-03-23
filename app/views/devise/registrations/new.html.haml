@@ -21,7 +21,7 @@
             = f.label :パスワード
             %span.required 必須
             %br/
-            = f.password_field :password, class: 'input-default', placeholder: "7(6になってるよ)文字以上の半角英数"
+            = f.password_field :password, class: 'input-default', placeholder: "7文字以上の半角英数"
           .field
             = f.label :パスワード（確認用）
             %span.required 必須
@@ -54,39 +54,37 @@
             = f.label :送付先氏名（ふりがな）
             %span.required 必須
             %br/
-            = f.text_field :send_last_name, class: 'input-half', placeholder: "例)たなか"
-            = f.text_field :send_first_name, class: 'input-half', placeholder: "例)はなこ"
-          -# 以下addresカラムの仮置き
-          .field
-            = f.label :郵便番号
-            %span.required 必須
-            %br/
-            = f.text_field :birthday, class: 'input-default', placeholder: "例)1231234"
-          -# 都道府県 enum使用のセレクトボックス
-          -# .field
-          -#   = f.label :都道府県
-          -#   %span.required 必須
-          -#   %br/
-          -#   = f.select :delivery_area, User.delivery_areas.keys, {}, {class: 'hoge'}
-          .field
-            = f.label :市区町村
-            %span.required 必須
-            %br/
-            = f.text_field :birthday, class: 'input-default', placeholder: "例)渋谷区道玄坂"
-          .field
-            = f.label :番地
-            %span.required 必須
-            %br/
-            = f.text_field :birthday, class: 'input-default', placeholder: "例)2-23-12"
-          .field
-            = f.label :建物名
-            %br/
-            = f.text_field :birthday, class: 'input-default', placeholder: "例)フリマビル103"
+            = f.text_field :send_last_name_kana, class: 'input-half', placeholder: "例)たなか"
+            = f.text_field :send_first_name_kana, class: 'input-half', placeholder: "例)はなこ"
+          = f.fields_for :address do |f|
             .field
-            = f.label :電話番号
-            %br/
-            = f.text_field :birthday, class: 'input-default', placeholder: "例)08012345678"
-            -#  ここまでaddresカラム仮置き
+              = f.label :郵便番号
+              %span.required 必須
+              %br/
+              = f.text_field :postalcode, class: 'input-default', placeholder: "例)1231234"
+            .field
+              = f.label :都道府県
+              %span.required 必須
+              %br/
+              = f.select :prefecture, Address.prefectures.keys, {}, {class: 'hoge'}
+            .field
+              = f.label :市区町村
+              %span.required 必須
+              %br/
+              = f.text_field :city_town, class: 'input-default', placeholder: "例)渋谷区道玄坂"
+            .field
+              = f.label :番地
+              %span.required 必須
+              %br/
+              = f.text_field :house_number, class: 'input-default', placeholder: "例)2-23-12"
+            .field
+              = f.label :建物名
+              %br/
+              = f.text_field :building_name, class: 'input-default', placeholder: "例)フリマビル103"
+            .field
+              = f.label :電話番号
+              %br/
+              = f.text_field :phone_number, class: 'input-default', placeholder: "例)08012345678"
           .actions
             = f.submit "次へ進む", class: 'submit-btn'
   .user-contents__footer
