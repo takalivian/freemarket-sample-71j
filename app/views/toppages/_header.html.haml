@@ -2,12 +2,12 @@
   .header__inner
     .header__inner__main-header
       .header__inner__main-header__furima-image
-        タイトル
+
       .header__inner__main-header__search-box
         .header__inner__main-header__seach-box__search-input
-          テキスト
-        .header__inner__main-header__seach-box__search-icon
-          アイコン
+          = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
+            = form.text_field :date, placeholder: "キーワードから探す", class: 'search-text'
+            = form.submit :　, class: 'search-btn'
 
     .header__inner__nav
       .header__inner__nav__list-left
