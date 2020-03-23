@@ -3,7 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  # addresカラム未作成のためuserカラムに仮置き
+  has_many :items
+  has_many :cards
+  has_one :address
+
+# addresカラム未作成のためuserカラムに仮置き
 #   enum delivery_area:{
 #   "---":0,
 #   北海道:1,青森県:2,岩手県:3,宮城県:4,秋田県:5,山形県:6,福島県:7,
@@ -16,4 +20,5 @@ class User < ApplicationRecord
 #   福岡県:40,佐賀県:41,長崎県:42,熊本県:43,大分県:44,宮崎県:45,鹿児島県:46, 
 #   沖縄県:47
 # }
+
 end
