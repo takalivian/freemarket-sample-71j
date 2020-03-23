@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 2020_03_20_085400) do
     t.string "city_town", null: false
     t.string "building_name", null: false
     t.bigint "user_id", null: false
-    t.integer "prefecture_id"
-    t.string "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -64,11 +62,6 @@ ActiveRecord::Schema.define(version: 2020_03_20_085400) do
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["name"], name: "index_items_on_name", unique: true
     t.index ["user_id"], name: "index_items_on_user_id"
-  end
-  
-  create_table "toppages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
