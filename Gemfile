@@ -70,7 +70,7 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 
- gem 'haml-rails'
- gem 'devise'
-
- 
+gem 'haml-rails'
+gem 'devise'
+gem 'font-awesome-sass'
+gem 'active_hash'
