@@ -149,7 +149,7 @@
   &__mainfirst{
     width: 100%;
     height: 560px;
-    background-image: image-url(bg-mainVisual-pict_pc.jpg);
+    background-image: image-url('bg-mainVisual-pict_pc.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -182,12 +182,12 @@
         &__abtn{
           width: 200px;
           margin-right: 10px;
-          background-image: image-url(app-store.svg);
+          background-image: image-url('app-store.svg');
           background-size:cover;
         }
         &__bbtn{
           width: 200px;
-          background-image: image-url(google.svg);
+          background-image: image-url('google.svg');
           background-size:cover;
         }
       }
@@ -248,7 +248,7 @@
           height: 300px;
           vertical-align: bottom;
           background-size: 350px;
-          background-image: image-url(pict-reason-01.jpg);
+          background-image: image-url('pict-reason-01.jpg');
         }
       }
       &__text{
@@ -290,7 +290,7 @@
           width: 300px;
           height: 300px;
           vertical-align: bottom;
-          background-image: image-url(pict-reason-02.jpg);
+          background-image: image-url('pict-reason-02.jpg');
           background-size: 350px;
         }
       }
@@ -315,7 +315,7 @@
           height: 300px;
           vertical-align: bottom;
           background-size: 350px;
-          background-image: image-url(pict-reason-03.jpg);
+          background-image: image-url('pict-reason-03.jpg');
         }
       }
     }
@@ -376,7 +376,7 @@
             height: 300px;
             vertical-align: bottom;
             background-size: 200px;
-            background-image: image-url(icon-01.png);
+            background-image: image-url('icon-01.png');
           }
         }
         &__text{
@@ -411,7 +411,7 @@
             width: 200px;
             height: 300px;
             vertical-align: bottom;
-            background-image: image-url(icon-03.png);
+            background-image: image-url('icon-03.png');
             background-size: 200px;
           }
         }
@@ -436,14 +436,14 @@
             height: 300px;
             vertical-align: bottom;
             background-size: 200px;
-            background-image: image-url(icon-04.png);
+            background-image: image-url('icon-04.png');
           }
         }
       }
     }
   }
   &__mainsecond{
-    background-image: image-url(bg-topMiddleDl-pict.jpg);
+    background-image: image-url('bg-topMiddleDl-pict.jpg');
     background-position: bottom right;
     height: 400px;
     background-size: cover;
@@ -472,13 +472,13 @@
         &__cbtn{
           margin-right: 10px;
           width: 200px;
-          background-image: image-url(app-store.svg);
+          background-image: image-url('app-store.svg');
           background-size:cover;
         }
         &__dbtn{
           width: 200px;
           background-color: black;
-          background-image: image-url(google.svg);
+          background-image: image-url('google.svg');
           background-size:cover;
         }
       }
@@ -622,7 +622,7 @@
 .footer{
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
   .footer-top{
-    background-image: image-url(bg-appBanner-pict.jpg);
+    background-image: image-url('bg-appBanner-pict.jpg');
     padding: 100px 40px;
     background-size: cover;
     background-position: center;
@@ -650,7 +650,7 @@
           height: 50px;
           background-size: cover;
           background-position: center;
-          background-image: image-url(app-store.svg);
+          background-image: image-url('app-store.svg');
           margin-right: 10px;
         }
         &__google-btn{
@@ -658,7 +658,7 @@
           height: 50px;
           background-size: cover;
           background-position: center;
-          background-image: image-url(google.svg);
+          background-image: image-url('google.svg');
         }
       }
     }
@@ -721,7 +721,7 @@
       left: 760px;
       top: 300px;
       &__sub{
-        background-image:image-url(logo-white.png);
+        background-image:image-url('logo-white.png');
         background-size: cover;
         width: 140px;
         height: 40px;
