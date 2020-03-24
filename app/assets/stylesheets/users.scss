@@ -6,7 +6,7 @@
     height: 1000px;
     position: relative;
     &__top{
-      background-image: image-url("https://cdn-ak.f.st-hatena.com/images/fotolife/r/right-write1/20150801/20150801195536.jpg");
+      background-image: url("https://cdn-ak.f.st-hatena.com/images/fotolife/r/right-write1/20150801/20150801195536.jpg");
       position: absolute;
       top: 0;
       right: 0;
@@ -21,7 +21,7 @@
         height: 30px;
         background-color: #DFE5F2;
         position: absolute;
-        bottom: 90px;
+        bottom: 220px;
         display: flex;
         &__first{
           background-color: #DFE5F2;
@@ -104,10 +104,3 @@
 
 
 
-
-  .fa-smile-wink:before {
-    color: pink;
-    position: absolute;
-    top: 49px;
-    left: 164px;
-  }
