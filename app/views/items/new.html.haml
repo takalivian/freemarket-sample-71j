@@ -3,7 +3,7 @@
     = link_to root_path do
       .sale-page__furima-icon__icon-box
   .sale-page__sale
-    = form_with(model: @item, local: true) do |form|
+    = form_with(model: @item, local: true)do |form|
       .sale-page__sale__sale-image-box
         .sale-page__sale__sale-image-box__title-box
           .sale-page__sale__sale-image-box__title-box__title
@@ -44,7 +44,7 @@
             .sale-page__sale__sale-date-box__date-top__title-box__required
               必須
           .sale-page__sale__sale-date-box__date-top__text
-            = form.select :category, [ ["レディース"], ["メンズ"], ["ベビー・キッズ"], ["インテリア・住まい・小物"], ["本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容"], ["家電・スマホ・カメラ"], ["スポーツ・レジャー"] ,["ハンドメイド"], ["チケット"], ["自転車・オートバイ"], ["その他"] ], prompt: "選択して下さい", class: 'category-box'
+            = form.select :category_id, [ ["レディース"], ["メンズ"], ["ベビー・キッズ"], ["インテリア・住まい・小物"], ["本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容"], ["家電・スマホ・カメラ"], ["スポーツ・レジャー"] ,["ハンドメイド"], ["チケット"], ["自転車・オートバイ"], ["その他"] ], prompt: "選択して下さい", class: 'category-box'
         .sale-page__sale__sale-date-box__date-center
           .sale-page__sale__sale-date-box__date-center__title-box
             .sale-page__sale__sale-date-box__date-center__title-box__title
@@ -60,7 +60,7 @@
             .sale-page__sale__sale-date-box__date-bottom__title-box__required
               必須
           .sale-page__sale__sale-date-box__date-bottom__text
-            = form.collection_select :status, Statusselect.all, :id, :name,prompt: "選択して下さい", class: 'category-box'
+            = form.collection_select :status, Statushash.all, :id, :name,prompt: "選択して下さい", class: 'category-box'
 
       .sale-page__sale__sale-delivery-box
         .sale-page__sale__sale-delivery-box__delivery-title
