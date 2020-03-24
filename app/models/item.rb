@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :statushash
   belongs_to_active_hash :feehash
+  belongs_to_active_hash :shippinghash
 
 
 end

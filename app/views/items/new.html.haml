@@ -4,18 +4,18 @@
       .sale-page__furima-icon__icon-box
   .sale-page__sale
     = form_with(model: @item, local: true)do |form|
-      .sale-page__sale__sale-image-box
-        .sale-page__sale__sale-image-box__title-box
-          .sale-page__sale__sale-image-box__title-box__title
-            出品画像
-          .sale-page__sale__sale-image-box__title-box__required
-            必須
-        .sale-page__sale__sale-image-box__description
-          最大10枚までアップロードできます
-        .sale-page__sale__sale-image-box__image-form
-          = form.label :image, class: 'image' do
-            = icon('fas', 'camera', class: 'image__icon')
-            = form.file_field :image, class: 'file'
+      -# .sale-page__sale__sale-image-box
+      -#   .sale-page__sale__sale-image-box__title-box
+      -#     .sale-page__sale__sale-image-box__title-box__title
+      -#       出品画像
+      -#     .sale-page__sale__sale-image-box__title-box__required
+      -#       必須
+      -#   .sale-page__sale__sale-image-box__description
+      -#     最大10枚までアップロードできます
+      -#   .sale-page__sale__sale-image-box__image-form
+      -#     = form.label :image, class: 'image' do
+      -#       = icon('fas', 'camera', class: 'image__icon')
+      -#       = form.file_field :image, class: 'file'
       .sale-page__sale__sale-item-box
         .sale-page__sale__sale-item-box__item-top
           .sale-page__sale__sale-item-box__item-top__title-box
@@ -88,8 +88,7 @@
             .sale-page__sale__sale-delivery-box__delivery-bottom__title-box__required
               必須
           .sale-page__sale__sale-delivery-box__delivery-bottom__text
-            = form.select :shipping, [ ["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"] ], prompt: "選択して下さい", class: 'shipping-box'
-
+            = form.collection_select :shipping, Shippinghash.all, :id, :name,prompt: "選択して下さい", class: 'shipping-box'
       .sale-page__sale__sale-price-box
         .sale-page__sale__sale-price-box__price-title
           価格
