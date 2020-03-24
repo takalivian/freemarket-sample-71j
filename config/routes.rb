@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to:"toppages#index"
-  resources :toppages, only: [:index, :new, :create, :show]
+  root to:"items#index"
+  resources :items, only: [:index, :new, :create, :show]
 
 end
