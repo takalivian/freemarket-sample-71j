@@ -11,7 +11,5 @@ class Address < ApplicationRecord
     福岡県:39,佐賀県:40,長崎県:41,熊本県:42,大分県:43,宮崎県:44,鹿児島県:45, 
     沖縄県:46
   }
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :prefecture
   belongs_to :user
 end
