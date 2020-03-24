@@ -18,9 +18,15 @@
           = link_to "#", class: "btn-brand" do
             ブランド
       .header__inner__nav__list-right
-        .header__inner__nav__list-right__login
-          = link_to "#", class: "btn-login" do
-            ログイン
-        .header__inner__nav__list-right__login-new
-          = link_to "#", class: "btn-login-new" do
-            新規会員登録
+        .header__inner__nav__list-right__box-left
+          - if user_signed_in?
+          - else
+            = link_to new_user_session_path, class: "left-btn" do
+              ログイン
+        .header__inner__nav__list-right__box-right
+          - if user_signed_in?
+            = link_to destroy_user_session_path, method: :delete, class: "right-btn" do
+              ログアウト
+          - else
+            = link_to new_user_registration_path, class: "right-btn" do
+              新規会員登録

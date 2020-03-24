@@ -66,7 +66,7 @@
               = f.label :都道府県
               %span.required 必須
               %br/
-              = f.select :prefecture, Address.prefectures.keys, {}, {class: 'hoge'}
+              = f.select :prefecture, Address.prefectures.keys, {}, {class: 'prefectures-tab'}
             .field
               = f.label :市区町村
               %span.required 必須
@@ -80,7 +80,7 @@
             .field
               = f.label :建物名
               %br/
-              = f.text_field :building_name, class: 'input-default', placeholder: "例)フリマビル103"
+              = f.text_field :building_name, class: 'input-default', placeholder: "例)フリマビル 103号室"
             .field
               = f.label :電話番号
               %br/
