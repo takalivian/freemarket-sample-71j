@@ -72,7 +72,7 @@
             .sale-page__sale__sale-delivery-box__delivery-top__title-box__required
               必須
           .sale-page__sale__sale-delivery-box__delivery-top__text
-            = form.number_field :fee, placeholder: "配送料を入力して下さい" , class: 'fee-box'
+            = form.collection_select :fee,  Feehash.all, :id, :name,prompt: "選択して下さい" , class: 'fee-box'
         .sale-page__sale__sale-delivery-box__delivery-center
           .sale-page__sale__sale-delivery-box__delivery-center__title-box
             .sale-page__sale__sale-delivery-box__delivery-center__title-box__title
