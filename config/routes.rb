@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :toppages, only: [:index, :new, :create, :show]
+  resources :users, only: [:show]
 end
+
