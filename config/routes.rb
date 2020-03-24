@@ -4,5 +4,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  resources :toppages, only: :index
+  resources :toppages, only: [:index, :new, :create, :show]
 end
