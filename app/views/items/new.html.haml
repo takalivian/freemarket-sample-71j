@@ -13,8 +13,12 @@
         .sale-page__sale__sale-image-box__description
           最大10枚までアップロードできます
         .sale-page__sale__sale-image-box__image-form
-          = form.fields_for :images do |i|
-            = i.file_field :url
+          #image-box
+            = form.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :src, class: 'js-file'
+                %br/
+                %span.js-remove 削除
       .sale-page__sale__sale-item-box
         .sale-page__sale__sale-item-box__item-top
           .sale-page__sale__sale-item-box__item-top__title-box
