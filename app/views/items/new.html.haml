@@ -47,13 +47,12 @@
             .sale-page__sale__sale-date-box__date-top__title-box__required
               必須
           .sale-page__sale__sale-date-box__date-top__text
-            .select-wrap
-              = select :category_1,:category_1, options_from_collection_for_select(Category.all.order("id ASC").limit(13), :id, :category),{}, {class: 'item__f-select'}
-            .select-wrap.category-box__child
-              = select :category_2,:category_2, options_from_collection_for_select(Category.where(id: @item.category.parent.id), :id, :category), {}, {class: 'item__f-select'}
-            .select-wrap.category-box__grandchild
-              = f.select :category_id, options_from_collection_for_select(Category.where(id: @item.category_id), :id, :category), {}, {class: 'item__f-select'}
-          
+            .listing-form-box
+              .listing-product-detail__category
+                .listing-select-wrapper
+                  .listing-select-wrapper__box
+                    = form.select :category_id, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                    %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         .sale-page__sale__sale-date-box__date-center
           .sale-page__sale__sale-date-box__date-center__title-box
             .sale-page__sale__sale-date-box__date-center__title-box__title
