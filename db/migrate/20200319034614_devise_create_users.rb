@@ -4,18 +4,18 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :nickname,             null: false, index: true, unique: true
-      t.string :email,                null: false, default: ""
-      t.string :encrypted_password,   null: false, default: ""
-      t.string :first_name,           null: false
-      t.string :last_name,            null: false
-      t.string :birthday,             null: false
-      t.string :send_first_name,      null: false
-      t.string :send_last_name,       null: false
-      t.string :first_name_kana,      null: false
-      t.string :last_name_kana,       null: false
-      t.string :send_first_name_kana, null: false
-      t.string :send_last_name_kana,  null: false
+      t.string :nickname,              index: true, unique: true
+      t.string :email,                default: ""
+      t.string :encrypted_password,  default: ""
+      t.string :first_name
+      t.string :last_name
+      t.string :birthday
+      t.string :send_first_name
+      t.string :send_last_name
+      t.string :first_name_kana
+      t.string :last_name_kana
+      t.string :send_first_name_kana
+      t.string :send_last_name_kana
       # addresカラム未作成のためuserカラムに仮置き
       # t.integer :delivery_area, null: false, default: 0
 
@@ -45,7 +45,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
 
-      t.timestamps null: false
+      t.timestamps
     end
 
     add_index :users, :email,                unique: true

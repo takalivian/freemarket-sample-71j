@@ -13,81 +13,75 @@
 ActiveRecord::Schema.define(version: 2020_03_24_024012) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "postalcode", null: false
-    t.integer "prefecture", null: false
-    t.string "city_town", null: false
-    t.string "building_name", null: false
-    t.integer "prefecture_id"
-    t.string "city"
-    t.bigint "user_id", null: false
+    t.string "postalcode"
+    t.integer "prefecture"
+    t.string "city_town"
+    t.string "building_name"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "customer_id", null: false
-    t.string "card_id", null: false
-    t.bigint "user_id", null: false
+    t.string "customer_id"
+    t.string "card_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "url", null: false
-    t.bigint "item_id", null: false
+    t.string "url"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image", null: false
-    t.string "name", null: false
-    t.text "text", null: false
-    t.integer "status", null: false
+    t.string "name"
+    t.text "text"
+    t.integer "status"
     t.string "brand"
-    t.integer "fee", null: false
-    t.integer "prefecture_id", null: false
-    t.integer "shipping", null: false
-    t.integer "price", null: false
-    t.bigint "user_id", null: false
-    t.bigint "category_id", null: false
+    t.integer "fee"
+    t.integer "prefecture_id"
+    t.integer "shipping"
+    t.integer "price"
+    t.bigint "user_id"
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
-    t.index ["name"], name: "index_items_on_name", unique: true
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "status_id"
-    t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "first_name", null: false
-    t.string "last_name", null: false
-    t.string "birthday", null: false
-    t.string "send_first_name", null: false
-    t.string "send_last_name", null: false
-    t.string "first_name_kana", null: false
-    t.string "last_name_kana", null: false
-    t.string "send_first_name_kana", null: false
-    t.string "send_last_name_kana", null: false
+    t.string "nickname"
+    t.string "email", default: ""
+    t.string "encrypted_password", default: ""
+    t.string "first_name"
+    t.string "last_name"
+    t.string "birthday"
+    t.string "send_first_name"
+    t.string "send_last_name"
+    t.string "first_name_kana"
+    t.string "last_name_kana"
+    t.string "send_first_name_kana"
+    t.string "send_last_name_kana"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

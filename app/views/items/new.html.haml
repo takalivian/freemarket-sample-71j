@@ -16,7 +16,7 @@
           #image-box
             = form.fields_for :images do |image|
               .js-file_group{"data-index" => "#{image.index}"}
-                = image.file_field :src, class: 'js-file'
+                = image.file_field :url, class: 'js-file'
                 %br/
                 %span.js-remove 削除
       .sale-page__sale__sale-item-box
@@ -47,7 +47,13 @@
             .sale-page__sale__sale-date-box__date-top__title-box__required
               必須
           .sale-page__sale__sale-date-box__date-top__text
-            = form.select :category_id, [ ["レディース"], ["メンズ"], ["ベビー・キッズ"], ["インテリア・住まい・小物"], ["本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容"], ["家電・スマホ・カメラ"], ["スポーツ・レジャー"] ,["ハンドメイド"], ["チケット"], ["自転車・オートバイ"], ["その他"] ], prompt: "選択して下さい", class: 'category-box'
+            .select-wrap
+              = select :category_1,:category_1, options_from_collection_for_select(Category.all.order("id ASC").limit(13), :id, :category),{}, {class: 'item__f-select'}
+            .select-wrap.category-box__child
+              = select :category_2,:category_2, options_from_collection_for_select(Category.where(id: @item.category.parent.id), :id, :category), {}, {class: 'item__f-select'}
+            .select-wrap.category-box__grandchild
+              = f.select :category_id, options_from_collection_for_select(Category.where(id: @item.category_id), :id, :category), {}, {class: 'item__f-select'}
+          
         .sale-page__sale__sale-date-box__date-center
           .sale-page__sale__sale-date-box__date-center__title-box
             .sale-page__sale__sale-date-box__date-center__title-box__title
