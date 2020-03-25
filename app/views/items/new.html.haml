@@ -4,18 +4,17 @@
       .sale-page__furima-icon__icon-box
   .sale-page__sale
     = form_with(model: @item, local: true)do |form|
-      -# .sale-page__sale__sale-image-box
-      -#   .sale-page__sale__sale-image-box__title-box
-      -#     .sale-page__sale__sale-image-box__title-box__title
-      -#       出品画像
-      -#     .sale-page__sale__sale-image-box__title-box__required
-      -#       必須
-      -#   .sale-page__sale__sale-image-box__description
-      -#     最大10枚までアップロードできます
-      -#   .sale-page__sale__sale-image-box__image-form
-      -#     = form.label :image, class: 'image' do
-      -#       = icon('fas', 'camera', class: 'image__icon')
-      -#       = form.file_field :image, class: 'file'
+      .sale-page__sale__sale-image-box
+        .sale-page__sale__sale-image-box__title-box
+          .sale-page__sale__sale-image-box__title-box__title
+            出品画像
+          .sale-page__sale__sale-image-box__title-box__required
+            必須
+        .sale-page__sale__sale-image-box__description
+          最大10枚までアップロードできます
+        .sale-page__sale__sale-image-box__image-form
+          = form.fields_for :images do |i|
+            = i.file_field :url
       .sale-page__sale__sale-item-box
         .sale-page__sale__sale-item-box__item-top
           .sale-page__sale__sale-item-box__item-top__title-box
