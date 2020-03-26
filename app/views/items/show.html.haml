@@ -14,7 +14,7 @@
           - else
         .details-main__bottom__product__edit-dest__box
           - if user_signed_in? && current_user.id == @item.user_id
-            = link_to '削除', "#", class: "details-main__bottom__product__edit-dest__box__dest" 
+            = link_to '削除', item_path(@item.id), method: :delete,class: "details-main__bottom__product__edit-dest__box__dest" 
           - else
       .details-main__bottom__product__img
         = image_tag @item.images[0].url, size: "100%x100%", class: "large-img"

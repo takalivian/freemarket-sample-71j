@@ -16,14 +16,9 @@ class ItemsController < ApplicationController
   def create
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
-    
+    @item = Item.find(params[:id])
+    @item.destroy
   end
 
   private
