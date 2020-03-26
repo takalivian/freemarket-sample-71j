@@ -16,10 +16,14 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-
     if @item.save
       redirect_to root_path
     else
+      @category_parent_array = ["---"]
+      #データベースから、親カテゴリーのみ抽出し、配列化
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
       render :new
     end
   end
@@ -47,7 +51,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit( :name, :text, :category_id, :brand, :status, :fee, :prefecture_id, :shipping, :price, :user_id,images_attributes: [:url])
+    params.require(:item).permit( :name, :text, :brand, :status, :fee, :prefecture_id, :shipping, :price, :user_id,images_attributes: [:url]).merge(category_id: params[:category_id])
   end
 
 end

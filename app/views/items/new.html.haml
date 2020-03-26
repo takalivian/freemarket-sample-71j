@@ -49,6 +49,8 @@
           .sale-page__sale__sale-date-box__date-top__text
             .listing-form-box
               .listing-product-detail__category
+                = form.label 'カテゴリー', class: 'listing-default__label'
+                %span.listing-default--require 必須
                 .listing-select-wrapper
                   .listing-select-wrapper__box
                     = form.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
