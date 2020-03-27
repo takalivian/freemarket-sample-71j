@@ -17,13 +17,14 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: '投稿が送信されました'
     else
       @category_parent_array = ["---"]
       #データベースから、親カテゴリーのみ抽出し、配列化
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent.name
       end
+      flash.now[:alert] = 'メッセージを入力してください。'
       render :new
     end
   end
