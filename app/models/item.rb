@@ -2,6 +2,7 @@ class Item < ApplicationRecord
   # belongs_to :user
   belongs_to :category
   has_many :images
+  # validates :name,:text, :status, :fee, :prefecture_id, :shipping, :price, presence: true
   
   # 親と子同時削除
   accepts_nested_attributes_for :images, allow_destroy: true
