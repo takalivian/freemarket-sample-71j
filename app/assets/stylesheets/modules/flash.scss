@@ -1,7 +1,10 @@
 .notification {
+  color: white;
+  text-align: center;
+  .notece {
+    background-color: lightblue;
+  }
   .alert {
     background-color: orange;
-    color: white;
-    text-align: center;
   }
 }
