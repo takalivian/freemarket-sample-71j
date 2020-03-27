@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    set_item
   end
 
   def purchase
@@ -17,12 +17,17 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
+    set_item
+    if @item.destroy
+      render :destroy
+    else
+      flash.now[:alert] = '商品出品取り消しに失敗しました。'
+      render :show
+    end
   end
 
   private
-  def item_params
-    # params.require(:item).permit( :name, :text, :category_id, :brand, :status, :fee, :prefecture_id, :shipping, :price, :user_id,images_attributes: [:url])
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
