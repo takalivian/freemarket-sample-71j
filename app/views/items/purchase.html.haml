@@ -12,12 +12,13 @@
         .product-purchase__box__main__second__inner
           .product-purchase__box__main__second__inner__item
             .product-purchase__box__main__second__inner__item__image
+              = image_tag @item.images[0].url, size: "100x100", class: "product_imge"
             .product-purchase__box__main__second__inner__item__detail
               .product-purchase__box__main__second__inner__item__detail__name
-                シフォンタンクトップ
+                = @item.name
               .product-purchase__box__main__second__inner__item__detail__bold
                 .product-purchase__box__main__second__inner__item__detail__bold__price
-                  ¥500
+                  = @item.price
                 .product-purchase__box__main__second__inner__item__detail__bold__tax-included
                   （税込み）送料込み
       .product-purchase__box__main__third
@@ -29,7 +30,7 @@
                   支払金額
                 .product-purchase__box__main__third__inner__frame__price-table__bold__prace
                   .product-purchase__box__main__third__inner__frame__price-table__bold__prace__pay
-                    ¥500
+                    = @item.price
             .product-purchase__box__main__third__inner__frame__point
               .product-purchase__box__main__third__inner__frame__point__accordion-parent
                 .product-purchase__box__main__third__inner__frame__point__accordion-parent__check
