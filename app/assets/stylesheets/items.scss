@@ -1,3 +1,30 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// destroy画面ビュー
+.delete-result {
+  background-color: rgb(245, 245, 245);;
+  height: 300px;
+  padding-top: 10px;
+  &__main {
+    background-color: white;
+    height: 280px;
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 20px;
+    &__text {
+      height: 200px;
+      line-height: 200px;
+    }
+    &__return {
+      height: 50px;
+      line-height: 50px;
+      width: 500px;
+      background-color: red;
+      color: white;
+      border-radius: 100px;
+      margin: 0 auto;
+      .return-btn {
+        display: block;
+      }
+    }
+  }
+}

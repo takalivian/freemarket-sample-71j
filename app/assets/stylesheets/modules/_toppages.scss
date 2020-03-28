@@ -88,22 +88,22 @@
       &__list-right{
         margin-left: auto;
         display: flex;
-        &__login{
+        &__box-left{
           color: #333;
           line-height: 38px;
           padding: 0 0 0 16px;
-          .btn-login{
+          .left-btn{
             display: flex;
             align-items: center;
             color: #333;
             text-decoration: none;
           }
         }
-        &__login-new{
+        &__box-right{
           color: #333;
           line-height: 38px;
           padding: 0 0 0 16px;
-          .btn-login-new{
+          .right-btn{
             display: flex;
             align-items: center;
             color: #333;

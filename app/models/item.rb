@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   # belongs_to :user
   belongs_to :category
-  has_many :images
+  has_many :images, dependent: :destroy
   belongs_to :saler, class_name: "User"
   belongs_to :buyer, class_name: "User"
   validates :images, :name,:text, :status, :fee, :prefecture_id, :shipping, :price, presence: true
@@ -15,7 +15,5 @@ class Item < ApplicationRecord
   belongs_to_active_hash :statushash
   belongs_to_active_hash :feehash
   belongs_to_active_hash :shippinghash
-
-
 
 end

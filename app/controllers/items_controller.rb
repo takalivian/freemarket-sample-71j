@@ -29,13 +29,28 @@ class ItemsController < ApplicationController
     end
   end
 
-  def edit
+  def show
+    set_item
   end
 
-  def update
+  def purchase
+
+  end
+
+  def new
+  end
+
+  def create
   end
 
   def destroy
+    set_item
+    if @item.destroy
+      render :destroy
+    else
+      flash.now[:alert] = '商品出品取り消しに失敗しました。'
+      render :show
+    end
   end
 
   # 親カテゴリーが選択された後に動くアクション
@@ -55,4 +70,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit( :name, :text, :brand, :status, :fee, :prefecture_id, :shipping, :price, :user_id,images_attributes: [:url]).merge(category_id: params[:category_id],saler_id: current_user.id)
   end
 
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
