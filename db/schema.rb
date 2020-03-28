@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2020_03_24_024012) do
     t.integer "prefecture_id"
     t.integer "shipping"
     t.integer "price"
+    t.integer "saler_id"
+    t.integer "buyer_id"
     t.bigint "user_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false

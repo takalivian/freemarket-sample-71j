@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent.name
       end
-      flash.now[:alert] = 'メッセージを入力してください。'
+      flash.now[:alert] = '必須項目を入力してください。'
       render :new
     end
   end
@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit( :name, :text, :brand, :status, :fee, :prefecture_id, :shipping, :price, :user_id,images_attributes: [:url]).merge(category_id: params[:category_id])
+    params.require(:item).permit( :name, :text, :brand, :status, :fee, :prefecture_id, :shipping, :price, :user_id,images_attributes: [:url]).merge(category_id: params[:category_id],saler_id: current_user.id)
   end
 
 end

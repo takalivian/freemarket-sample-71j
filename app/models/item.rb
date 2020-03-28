@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   # belongs_to :user
   belongs_to :category
   has_many :images
+  belongs_to :saler, class_name: "User"
+  belongs_to :buyer, class_name: "User"
   validates :images, :name,:text, :status, :fee, :prefecture_id, :shipping, :price, presence: true
   
   # 親と子同時削除

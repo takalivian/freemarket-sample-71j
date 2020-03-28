@@ -9,6 +9,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer  :prefecture_id
       t.integer    :shipping
       t.integer :price
+      t.integer :saler_id
+      t.integer :buyer_id
       t.references :user,        foreign_key: true
       t.references :category,   foreign_key: true
       t.timestamps
