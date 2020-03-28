@@ -37,13 +37,10 @@
                   .product-purchase__box__main__third__inner__frame__point__accordion-parent__in
                   .product-purchase__box__main__third__inner__frame__point__accordion-parent__icon
                   .product-purchase__box__main__third__inner__frame__point__accordion-parent__point
-      .product-purchase__box__main__fourth
-        .product-purchase__box__main__fourth__inner
-          .product-purchase__box__main__fourth__inner__pay
-            支払い方法
-          .product-purchase__box__main__fourth__inner__link
-            .product-purchase__box__main__fourth__inner__link__icon
-              .product-purchase__box__main__fourth__inner__link__icon__text
+      
+          -# .product-purchase__box__main__fourth__inner__link
+          -#   .product-purchase__box__main__fourth__inner__link__icon
+          -#     .product-purchase__box__main__fourth__inner__link__icon__text
       .product-purchase__box__main__fifth
         .product-purchase__box__main__fifth__inner
           .product-purchase__box__main__fifth__inner__shipping-address
@@ -54,6 +51,12 @@
           .product-purchase__box__main__fifth__inner__sixth
             .product-purchase__box__main__fifth__inner__sixth__text
             .product-purchase__box__main__fifth__inner__sixth__bold
+              - if !Card.nil?
+                = link_to '購入する',purchase_index_path(@item.id), method: :get ,class:"buy-btn"
+              - else
+                = link_to 'カード情報を登録してください', "#" ,class:"buy-btn"
+            -# - elsif user_signed_in?
+            -#   = link_to '購入する', purchase_item_path, method: :get,class:"switch-btn"
               購入する
             .product-purchase__box__main__fifth__inner__sixth__app
             .product-purchase__box__main__fifth__inner__sixth__logos

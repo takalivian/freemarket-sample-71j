@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }
   resources :items, only: [:index, :new, :create, :show] do
     get :purchase, on: :member
+    resources :purchases, only:[:pay]
   end
   resources :cards, only: [:new, :show] do
     collection do
@@ -19,7 +20,6 @@ Rails.application.routes.draw do
   resources :purchase, only: [:index] do
     collection do
       get 'index', to: 'purchase#index'
-      post 'pay', to: 'purchase#pay'
       get 'done', to: 'purchase#done'
     end
   end
