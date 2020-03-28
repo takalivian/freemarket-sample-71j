@@ -37,12 +37,6 @@ class ItemsController < ApplicationController
 
   end
 
-  def new
-  end
-
-  def create
-  end
-
   def destroy
     set_item
     if @item.destroy
@@ -67,7 +61,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit( :name, :text, :brand, :status, :fee, :prefecture_id, :shipping, :price, :user_id,images_attributes: [:url]).merge(category_id: params[:category_id],saler_id: current_user.id)
+    params.require(:item).permit( :name, :text, :brand, :status, :fee, :prefecture_id, :shipping, :price, :user_id,images_attributes: [:url]).merge(category_id: params[:category_id])
   end
 
   def set_item
