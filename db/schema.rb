@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_024012) do
     t.string "house_number", null: false
     t.string "building_name"
     t.string "phone_number"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -100,7 +100,6 @@ ActiveRecord::Schema.define(version: 2020_03_24_024012) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "categories"
