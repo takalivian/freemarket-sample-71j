@@ -26,45 +26,44 @@ ActiveRecord::Schema.define(version: 2020_03_24_024012) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "customer_id"
-    t.string "card_id"
-    t.bigint "user_id"
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "url"
-    t.bigint "item_id"
+    t.string "url", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.text "text"
-    t.integer "status"
-    t.string "brand"
-    t.integer "fee"
-    t.integer "prefecture_id"
-    t.integer "shipping"
-    t.integer "price"
-    t.integer "saler_id"
+    t.string "name", null: false
+    t.text "text", null: false
+    t.integer "status", null: false
+    t.integer "fee", null: false
+    t.string "area", null: false
+    t.date "shipping_date", null: false
+    t.integer "price", null: false
+    t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
     t.integer "buyer_id"
-    t.bigint "user_id"
-    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["name"], name: "index_items_on_name", unique: true
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
