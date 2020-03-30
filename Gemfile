@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -73,7 +73,13 @@ end
 gem 'haml-rails'
 gem 'devise'
 gem 'font-awesome-sass'
+gem 'active_hash'
+gem 'pry-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'jquery-rails'
+gem 'ancestry'
 gem 'rspec-rails'
 gem 'active_hash'
-gem 'pry-rails', '~> 0.3.9'
+gem 'pry-rails'
 gem 'enum_help', '~> 0.0.17'

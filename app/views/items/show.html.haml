@@ -1,53 +1,71 @@
+= render "header"
 .details-main
   .details-main__top
     aaa > aaa > aaa > aaa >
 
   .details-main__bottom
-    .details-main__bottom__product
-      .details-main__bottom__product__title product3
+    .details-main__bottom__product 
+      .details-main__bottom__product__title 
+        = @item.name
+      .details-main__bottom__product__edit-dest
+        .details-main__bottom__product__edit-dest__box
+          - if user_signed_in? && current_user.id == @item.user_id
+            = link_to '編集', "#", class: "details-main__bottom__product__edit-dest__box__edit" 
+          - else
+        .details-main__bottom__product__edit-dest__box
+          - if user_signed_in? && current_user.id == @item.user_id
+            = link_to '削除', item_path(@item.id), method: :delete,class: "details-main__bottom__product__edit-dest__box__dest" 
+          - else
       .details-main__bottom__product__img
+        = image_tag @item.images[0].url, size: "100%x100%", class: "large-img"
       .details-main__bottom__product__img-bottom
         .details-main__bottom__product__img-bottom__picts
+          = image_tag @item.images[0].url, size: "100%x100%", class: "small-img"
         .details-main__bottom__product__img-bottom__picts
+          = image_tag @item.images[1].url, size: "100%x100%", class: "small-img"
         .details-main__bottom__product__img-bottom__picts
+          -# = image_ tag @item.images[2].url, size: "100x100", class: "small-img" // 表示数を変える可能性があるため
       .details-main__bottom__product__img-price 
-        ¥00000
+        = @item.price
       .details-main__bottom__product__img-text
         (税込)送料込み
       .details-main__bottom__product__img-text-bottom
-        OOO
+        = @item.text
       .details-main__bottom__product__img-table
         .details-main__bottom__product__img-table__left
           出品者
         .details-main__bottom__product__img-table__right
+          = @item.user.nickname
       .details-main__bottom__product__img-table
         .details-main__bottom__product__img-table__left
           カテゴリー
         .details-main__bottom__product__img-table__right
+          = @item.category.name
       .details-main__bottom__product__img-table
         .details-main__bottom__product__img-table__left
           ブランド
         .details-main__bottom__product__img-table__right
-      .details-main__bottom__product__img-table
-        .details-main__bottom__product__img-table__left
-          商品のサイズ
-        .details-main__bottom__product__img-table__right
+          -# = @item.brand //カラムを追加するため
       .details-main__bottom__product__img-table
         .details-main__bottom__product__img-table__left
           商品の状態
         .details-main__bottom__product__img-table__right
+          = @item.status
       .details-main__bottom__product__img-table
         .details-main__bottom__product__img-table__left
           配送料の負担
         .details-main__bottom__product__img-table__right
+          = @item.fee
       .details-main__bottom__product__img-table
         .details-main__bottom__product__img-table__left
           発送元の地域
         .details-main__bottom__product__img-table__right
+          = @item.area
       .details-main__bottom__product__img-table
         .details-main__bottom__product__img-table__left
           発送日の目安
         .details-main__bottom__product__img-table__right
+          = @item.shipping_date
       .details-main__bottom__product__img-boxes
         .details-main__bottom__product__img-boxes__left
           ★　お気に入り　０
@@ -66,10 +84,18 @@
         .details-main__bottom__comment__btn__box
           .details-main__bottom__comment__btn__box__send
             💬コメントする
+          .details-main__bottom__comment__btn__box__buy
+            - if user_signed_in? && current_user.id == @item.user_id
+            - elsif user_signed_in?
+              = link_to '購入する', purchase_item_path, method: :get,class:"switch-btn"
+            - else
+              = link_to '登録する', new_user_registration_path, class:"switch-btn"
     .details-main__bottom__third-content
       .details-main__bottom__third-content__left
         ＜前の商品
       .details-main__bottom__third-content__right
         次の商品＞
     .details-main__bottom__forth-content
-      あああ・あああをもっと見る
+      aaa
+    
+    = render "footer"

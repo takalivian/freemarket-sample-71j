@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  root to:"items#index"
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  resources :items, only: [:index, :new, :create, :show]
+  root to:"items#index"
+  resources :items, only: [:index, :new, :create, :show, :destroy] do
+    get :purchase, on: :member
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
   resources :users, only: [:show]
-end
 
+end
