@@ -81,5 +81,6 @@ gem 'jquery-rails'
 gem 'ancestry'
 gem 'rspec-rails'
 gem 'active_hash'
-gem 'pry-rails'
+gem 'fog-aws'
 gem 'enum_help', '~> 0.0.17'
+
