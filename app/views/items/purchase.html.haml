@@ -52,9 +52,9 @@
             .product-purchase__box__main__fifth__inner__sixth__text
             .product-purchase__box__main__fifth__inner__sixth__bold
               - if !Card.nil?
-                = link_to '購入する',purchase_index_path(@item.id), method: :get ,class:"buy-btn"
-              - else
-                = link_to 'カード情報を登録してください', "#" ,class:"buy-btn"
+                = link_to '購入する',item_pay_path(@item), method: :get ,class:"buy-btn"
+              -# - else
+              -#   = link_to 'カード情報を登録してください', new_card_path(@item) method: :get ,class:"buy-btn"
             -# - elsif user_signed_in?
             -#   = link_to '購入する', purchase_item_path, method: :get,class:"switch-btn"
               購入する

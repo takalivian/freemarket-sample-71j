@@ -1,5 +1,5 @@
 .page-ansem
-  = render 'toppages/header'
+  = render 'items/header'
   .page-ansem-center
     .page-ansem-center__top
       .page-ansem-center__top__icon
@@ -16,8 +16,14 @@
       .page-ansem-center__bottom__text
         .page-ansem-center__bottom__text__contents
           .page-ansem-center__bottom__text__contents__top
-            = link_to"●ログアウト"
+            - if user_signed_in?
+              = link_to destroy_user_session_path, method: :delete, class: "right-btn" do
+                ●ログアウト
           .page-ansem-center__bottom__text__contents__bottom
-            = link_to"●クレジットカードの編集"
-  = render 'toppages/footer'
+            - if !Card.nil?
+              = link_to "●クレジットカードの登録", new_card_path(current_user.id)
+            - else
+              .page-ansem-center__bottom__text__contents__bottom
+                = link_to "●クレジットカードの削除", delete_cards_path(@user)
+  = render 'items/footer'
   

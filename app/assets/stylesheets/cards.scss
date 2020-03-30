@@ -1,3 +1,116 @@
 // Place all the styles related to the cards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.pay-header{
+  position: relative;
+  height: 900px;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+  color: rgb(51, 51, 51);
+  line-height: 1;
+  background: rgb(245, 245, 245);
+  overflow: hidden;
+  &__box{
+    width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    &__heder{
+      text-align: center;
+      background: whitesmoke;
+      &__frame{
+        display: inline-block;
+        margin: 11px 0 12px;
+        &__link{
+          display: inline-block;
+          width: 120px;
+          height: 33px;
+          margin: 0 8px 0 0;
+          line-height: 33px;
+          &__image{
+            width: 120px;
+            height: 33px;
+            background-image: image-url("logo.png");
+            background-size: 120px;
+          }
+        }
+      }
+      &__main{
+        display: block;
+        background: #fff;
+        max-width: 343px;
+        margin: 0 auto;
+        &__frame{
+          background: #fff;
+          &__top{
+            padding: 16px;
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: solid;
+            border-width:1px;
+          }
+        }
+      }
+    }
+    &__middle{
+      display: block;
+      background: #fff;
+      max-width: 343px;
+      margin: 0 auto;
+      &__frame{
+        background: #fff;
+        &__top{
+          padding: 16px;
+          font-size: 18px;
+          line-height: 1.5;
+          text-align: center;
+          font-weight: bold;
+          border-bottom: solid;
+          border-width: 1px;
+          .buy-btn{
+            color: black;
+          }
+        }
+      }
+    }
+  }
+  &__footer{
+    text-align: center;
+    background: whitesmoke;
+    &__sub{
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      &__box{
+        display: flex;
+        justify-content: center;
+        &__text{
+          padding-right: 15px;
+          padding-top: 40px;
+          padding-bottom: 65px;
+          &__link{
+            padding-left: 1px;
+            padding-bottom: 5px;
+          }
+        }
+      }
+    }
+    &__image{
+      &__pasting{
+        justify-content: center;
+        margin: auto;
+        width: 80px;
+        height: 65px;
+        background-image: image-url("logo.png");
+        background-size: 236px;
+        padding-bottom: 2px;
+      }
+    }
+    &__logo{
+      &__pasting{
+        padding-right: 15px;
+      }
+    }
+  }
+}

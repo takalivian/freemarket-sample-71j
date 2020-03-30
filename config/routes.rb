@@ -6,21 +6,23 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
+
+  resources :users, only: [:show]
+
   resources :items, only: [:index, :new, :create, :show] do
     get :purchase, on: :member
-    resources :purchases, only:[:pay]
+    get 'pay', to: 'purchase#pay'
+    resources :purchase, only: [:show] do
+      collection do
+        post 'done', to: 'purchase#done'
+      end
+    end
   end
   resources :cards, only: [:new, :show] do
     collection do
       get 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       delete 'delete', to: 'cards#delete'
-    end
-  end
-  resources :purchase, only: [:index] do
-    collection do
-      get 'index', to: 'purchase#index'
-      get 'done', to: 'purchase#done'
     end
   end
 end
