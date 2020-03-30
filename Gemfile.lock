@@ -335,8 +335,8 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  fog-aws
   enum_help (~> 0.0.17)
+  fog-aws
   font-awesome-sass
   haml-rails
   jbuilder (~> 2.5)
