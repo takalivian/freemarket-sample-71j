@@ -1,5 +1,5 @@
 class Item < ApplicationRecord
-
+  belongs_to :user
   belongs_to :category
   has_many :images, dependent: :destroy
   validates :images, :name,:text, :status, :fee, :prefecture_id, :shipping, :price, presence: true

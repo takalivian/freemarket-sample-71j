@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.includes(:user).order("created_at desc").limit(6)
+    @items = Item.order("created_at desc").limit(6)
   end
 
   def new

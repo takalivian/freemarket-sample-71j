@@ -488,10 +488,11 @@
   
 
 // メインボトム
+
 .main{
   height: 100vh;
   width: 100vw;
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
   &__bottom{
     height: 100%;
     &__top{
@@ -512,11 +513,14 @@
         width: 700px;
         margin: auto;
         display: flex;
-        flex-wrap:wrap;
         justify-content: space-around;
+        flex-wrap: wrap;
         &__menu{
-          margin-bottom: 50px;
           background-color: white;
+          margin-bottom: 50px;
+          .item-menu{
+            color: black;
+          }
           &__img{
             width: 180px;
             height: 150px;
@@ -524,7 +528,7 @@
             overflow: hidden;
             margin: 0;
             z-index: auto;
-            background-image: image-url('a007.png');
+            // background-image: url(‘a007.png’);
             background-size: cover;
           }
           &__text{
@@ -555,7 +559,7 @@
       }
     }
     &__bottom{
-      background-color: #f8f8f8;
+      background-color: #F8F8F8;
       padding-top: 80px;
       .p{
         text-align: center;
@@ -586,7 +590,7 @@
             overflow: hidden;
             margin: 0;
             z-index: auto;
-            background-image: image-url('a007.png');
+            // background-image: url(‘a007.png’);
             background-size: cover;
           }
           &__text{
@@ -617,6 +621,10 @@
       }
     }
   }
+}
+img{
+  width: 180px;
+  height: 150px;
 }
 
 
