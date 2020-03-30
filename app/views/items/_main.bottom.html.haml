@@ -7,8 +7,7 @@
       .main__bottom__top__content-box
         - @items.each do |item|
           - if item.buyer_id.present?
-          - else "no buyer_id" 
-
+          - else "販売中" 
             .main__bottom__top__content-box__menu
               .main__bottom__top__content-box__menu__img
                 = image_tag item.images[0].url
@@ -19,8 +18,7 @@
                 .main__bottom__top__content-box__menu__text__middle__star
                   ★０
               .main__bottom__top__content-box__menu__text__bottom
-                (税込) （編集済み）               
-
+                (税込) （編集済み）
 
     -# .main__bottom__bottom
     -#   .p ピックアップブランド
