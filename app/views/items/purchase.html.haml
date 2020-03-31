@@ -12,7 +12,7 @@
         .product-purchase__box__main__second__inner
           .product-purchase__box__main__second__inner__item
             .product-purchase__box__main__second__inner__item__image
-              = image_tag @item.images[0].url, size: "100x100", class: "product_imge"
+              = image_tag ("#{@item.images[0].url}"), size: "100x100", class: "product_imge"
             .product-purchase__box__main__second__inner__item__detail
               .product-purchase__box__main__second__inner__item__detail__name
                 = @item.name
