@@ -3,7 +3,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def show
-    card = Card.where(user_id: current_user.id).first
+    card = Card.where(user_id: current_user.id === buyer_id).first
     if card.blank?
       redirect_to controller: "card", action: "new"
     else
@@ -26,7 +26,6 @@ class PurchaseController < ApplicationController
   end
 
   private
-
   def buy_product
     @item = Item.find(params[:item_id])
   end
