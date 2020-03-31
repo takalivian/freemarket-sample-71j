@@ -9,6 +9,10 @@ class ItemsController < ApplicationController
 
   def purchase
     @item = Item.find(params[:id])
+    @card = Card.where(user_id: current_user.id)
+    unless @card.present?
+      redirect_to new_card_path, method: :get
+    end
   end
 
   def new
@@ -27,8 +31,4 @@ class ItemsController < ApplicationController
     
   end
 
-  private
-  def item_params
-    # params.require(:item).permit( :name, :text, :category_id, :brand, :status, :fee, :prefecture_id, :shipping, :price, :user_id,images_attributes: [:url])
-  end
 end

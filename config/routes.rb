@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  
   resources :cards, only: [:new, :show] do
     collection do
       get 'show', to: 'cards#show'
