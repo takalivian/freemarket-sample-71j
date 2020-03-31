@@ -2,8 +2,8 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :images, dependent: :destroy
-  validates :images, :name,:text, :status, :fee, :prefecture_id, :shipping, :price, presence: true
-  
+  validates :images, :name, :text, :status, :fee, :prefecture_id, :shipping, presence: true
+  validates :price, numericality: { greater_than_or_equal_to: 50 }
 
   accepts_nested_attributes_for :images, allow_destroy: true
   
