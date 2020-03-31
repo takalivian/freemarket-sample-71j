@@ -1,14 +1,14 @@
 .sale-page{
   width: 100vw;
   background-color: whitesmoke;
-  height: 2100px;
+  padding-bottom: 150px;
   &__furima-icon{
     height: 130px;
     padding: 30px;
     &__icon-box{
       width: 230px;
       height: 65px;
-      background-image: url("logo.png");
+      background-image: image-url("logo.png");
       background-size:cover;
       margin: auto;
       line-height: 130px;
@@ -46,14 +46,6 @@
       }
       &__image-form{
         margin-top: 10px;
-        .fa-camera{
-          font-size: 60px;
-          cursor: pointer;
-          cursor: hand;
-        }
-        input{
-          display: none;
-        }
       }
     }
 // 商品名

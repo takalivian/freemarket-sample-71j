@@ -20,6 +20,8 @@
       .header__inner__nav__list-right
         .header__inner__nav__list-right__box-left
           - if user_signed_in?
+            = link_to (), class: "left-btn" do
+              マイページ
           - else
             = link_to new_user_session_path, class: "left-btn" do
               ログイン

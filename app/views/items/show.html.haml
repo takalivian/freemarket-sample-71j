@@ -1,7 +1,7 @@
 = render "header"
 .details-main
   .details-main__top
-    aaa > aaa > aaa > aaa >
+    -# aaa > aaa > aaa > aaa >
 
   .details-main__bottom
     .details-main__bottom__product 
@@ -14,17 +14,17 @@
           - else
         .details-main__bottom__product__edit-dest__box
           - if user_signed_in? && current_user.id == @item.user_id
-            = link_to '削除', "#", class: "details-main__bottom__product__edit-dest__box__dest" 
+            = link_to '削除', item_path(@item.id), method: :delete,class: "details-main__bottom__product__edit-dest__box__dest" 
           - else
       .details-main__bottom__product__img
-        = image_tag @item.images[0].url, size: "100%x100%", class: "large-img"
+        = image_tag ("#{@item.images[0].url}"), size: "100%x100%", class: "large-img"
       .details-main__bottom__product__img-bottom
         .details-main__bottom__product__img-bottom__picts
-          = image_tag @item.images[0].url, size: "100%x100%", class: "small-img"
+          = image_tag ("#{@item.images[0].url}"), size: "100%x100%", class: "small-img"
         .details-main__bottom__product__img-bottom__picts
-          = image_tag @item.images[1].url, size: "100%x100%", class: "small-img"
+          = image_tag ("#{@item.images[1].url}"), size: "100%x100%", class: "small-img"
         .details-main__bottom__product__img-bottom__picts
-          -# = image_ tag @item.images[2].url, size: "100x100", class: "small-img" // 表示数を変える可能性があるため
+          -# = image_tag @item.images[1].url.url, size: "100x100", class: "small-img" // 表示数を変える可能性があるため
       .details-main__bottom__product__img-price 
         = @item.price
       .details-main__bottom__product__img-text
@@ -45,7 +45,7 @@
         .details-main__bottom__product__img-table__left
           ブランド
         .details-main__bottom__product__img-table__right
-          -# = @item.brand //カラムを追加するため
+          = @item.brand
       .details-main__bottom__product__img-table
         .details-main__bottom__product__img-table__left
           商品の状態
@@ -60,12 +60,12 @@
         .details-main__bottom__product__img-table__left
           発送元の地域
         .details-main__bottom__product__img-table__right
-          = @item.area
+          = @item.prefecture.name
       .details-main__bottom__product__img-table
         .details-main__bottom__product__img-table__left
           発送日の目安
         .details-main__bottom__product__img-table__right
-          = @item.shipping_date
+          = @item.shipping
       .details-main__bottom__product__img-boxes
         .details-main__bottom__product__img-boxes__left
           ★　お気に入り　０

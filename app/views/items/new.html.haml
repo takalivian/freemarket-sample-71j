@@ -3,7 +3,7 @@
     = link_to root_path do
       .sale-page__furima-icon__icon-box
   .sale-page__sale
-    = form_with(model: @toppage, local: true) do |form|
+    = form_with(model: @item, local: true)do |form|
       .sale-page__sale__sale-image-box
         .sale-page__sale__sale-image-box__title-box
           .sale-page__sale__sale-image-box__title-box__title
@@ -13,9 +13,16 @@
         .sale-page__sale__sale-image-box__description
           最大10枚までアップロードできます
         .sale-page__sale__sale-image-box__image-form
-          = form.label :image, class: 'image' do
-            = icon('fas', 'camera', class: 'image__icon')
-            = form.file_field :image, class: 'file'
+          #image-box
+            #previews
+              - if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+            = form.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :url, class: 'js-file'
+                %br/
+                %span.js-remove 削除
       .sale-page__sale__sale-item-box
         .sale-page__sale__sale-item-box__item-top
           .sale-page__sale__sale-item-box__item-top__title-box
@@ -44,7 +51,14 @@
             .sale-page__sale__sale-date-box__date-top__title-box__required
               必須
           .sale-page__sale__sale-date-box__date-top__text
-            = form.select :category, [ ["レディース"], ["メンズ"], ["ベビー・キッズ"], ["インテリア・住まい・小物"], ["本・音楽・ゲーム"], ["おもちゃ・ホビー・グッズ"], ["コスメ・香水・美容"], ["家電・スマホ・カメラ"], ["スポーツ・レジャー"] ,["ハンドメイド"], ["チケット"], ["自転車・オートバイ"], ["その他"] ], prompt: "選択して下さい", class: 'category-box'
+            .listing-form-box
+              .listing-product-detail__category
+                = form.label 'カテゴリー', class: 'listing-default__label'
+                %span.listing-default--require 必須
+                .listing-select-wrapper
+                  .listing-select-wrapper__box
+                    = form.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                    %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
         .sale-page__sale__sale-date-box__date-center
           .sale-page__sale__sale-date-box__date-center__title-box
             .sale-page__sale__sale-date-box__date-center__title-box__title
@@ -60,7 +74,7 @@
             .sale-page__sale__sale-date-box__date-bottom__title-box__required
               必須
           .sale-page__sale__sale-date-box__date-bottom__text
-            = form.select :category, [ ["新品、未使用"], ["未使用に近い"], ["目立った傷や汚れなし"], ["やや傷や汚れあり"], ["傷や汚れあり"], ["全体的に状態が悪い"] ], prompt: "選択して下さい", class: 'category-box'
+            = form.collection_select :status, Statushash.all, :id, :name,prompt: "選択して下さい", class: 'category-box'
 
       .sale-page__sale__sale-delivery-box
         .sale-page__sale__sale-delivery-box__delivery-title
@@ -72,7 +86,7 @@
             .sale-page__sale__sale-delivery-box__delivery-top__title-box__required
               必須
           .sale-page__sale__sale-delivery-box__delivery-top__text
-            = form.number_field :fee, placeholder: "配送料を入力して下さい" , class: 'fee-box'
+            = form.collection_select :fee,  Feehash.all, :id, :name,prompt: "選択して下さい" , class: 'fee-box'
         .sale-page__sale__sale-delivery-box__delivery-center
           .sale-page__sale__sale-delivery-box__delivery-center__title-box
             .sale-page__sale__sale-delivery-box__delivery-center__title-box__title
@@ -80,7 +94,7 @@
             .sale-page__sale__sale-delivery-box__delivery-center__title-box__required
               必須
           .sale-page__sale__sale-delivery-box__delivery-center__text
-            = form.collection_select :prefecture_id, Prefecture.all, :id, :name
+            = form.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
         .sale-page__sale__sale-delivery-box__delivery-bottom
           .sale-page__sale__sale-delivery-box__delivery-bottom__title-box
             .sale-page__sale__sale-delivery-box__delivery-bottom__title-box__title
@@ -88,8 +102,7 @@
             .sale-page__sale__sale-delivery-box__delivery-bottom__title-box__required
               必須
           .sale-page__sale__sale-delivery-box__delivery-bottom__text
-            = form.select :shipping, [ ["1~2日で発送"], ["2~3日で発送"], ["4~7日で発送"] ], prompt: "選択して下さい", class: 'shipping-box'
-
+            = form.collection_select :shipping, Shippinghash.all, :id, :name,prompt: "選択して下さい", class: 'shipping-box'
       .sale-page__sale__sale-price-box
         .sale-page__sale__sale-price-box__price-title
           価格
@@ -99,7 +112,7 @@
           .sale-page__sale__sale-price-box__title-box__required
             必須
         .sale-page__sale__sale-price-box__text
-          = form.number_field :fee, placeholder: "販売価格を入力して下さい" , class: 'fee-box'
+          = form.number_field :price, placeholder: "販売価格を入力して下さい" , class: 'fee-box'
       
       .sale-page__sale__sale-form-box
         .sale-page__sale__sale-form-box__form-up
