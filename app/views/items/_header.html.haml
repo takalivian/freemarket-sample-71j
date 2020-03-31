@@ -2,12 +2,13 @@
   .header__inner
     .header__inner__main-header
       .header__inner__main-header__furima-image
-
+        = link_to root_path do
+          = image_tag "logo.png", class: "header-image"
       .header__inner__main-header__search-box
         .header__inner__main-header__seach-box__search-input
           = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
-            = form.text_field :date, placeholder: "キーワードから探す", class: 'search-text'
-            = form.submit :　, class: 'search-btn'
+            = form.text_field :date, placeholder: "キーワードから探す", class: "search-text"
+            = form.submit :　, class: "search-btn"
 
     .header__inner__nav
       .header__inner__nav__list-left
@@ -20,6 +21,8 @@
       .header__inner__nav__list-right
         .header__inner__nav__list-right__box-left
           - if user_signed_in?
+            = link_to user_path(current_user), class: "left-btn" do
+              マイページ 
           - else
             = link_to new_user_session_path, class: "left-btn" do
               ログイン
