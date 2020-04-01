@@ -19,24 +19,18 @@
       position: relative;
       display: flex;
       align-items: center;
-      &__furima-image{
-        padding-bottom: 10px;
-        margin-right: 30px;
-        border-radius: 4px;
-        background-image: image-url("logo.png");
-        background-size:cover;
-        height: 40px;
-        width: 170px;
+      .header-image{
+        width: 150px;
+        height: 55px;
+        margin-right: 50px;
       }
       &__search-box{
         width: 100%;
         display: flex;
-        
         .search-form{
           width: 100%;
           display: flex;
           margin-bottom: 5px;
-          
           .search-text{
             width: 830px;
             height: 38px;
@@ -47,7 +41,7 @@
             cursor: pointer;
             background-color: #3CCACE;
             background-image: url("icon-search1.png");
-            background-size:cover;
+            background-size:38px;
           }
         }
       }
@@ -485,8 +479,6 @@
     }
   }
 }
-  
-
 // メインボトム
 
 .main{
@@ -627,7 +619,6 @@ img{
   height: 150px;
 }
 
-
 // フッター
 .footer{
   font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
@@ -724,12 +715,12 @@ img{
       }
     }
     &__image{
-      max-width: 160px;
+      max-width: 840px;
       width: 100%;
       margin: 0 auto;
       position: absolute;
-      left: 760px;
       top: 300px;
+      margin-left: 340px;
       &__sub{
         background-image:image-url('logo-white.png');
         background-size: cover;
@@ -748,35 +739,10 @@ a{
   color: white;
   text-decoration: none;
 }
-
-
 img{
   width: 180px;
     height: 150px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .details-main{
   height: 2600px;

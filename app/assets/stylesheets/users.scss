@@ -81,19 +81,32 @@
             padding: 80px;
             &__top{
               height: 50px;
-              width: 100%;
-              display: flex;
-              align-items: center;
+              width: 133px;
+              display: inline-block;
+              padding: 0.5em 1em;
+              text-decoration: none;
+              background: #668ad8;/*ボタン色*/
+              color: #FFF;
+              border-bottom: solid 4px #627295;
+              border-radius: 3px;
               margin: auto;
-              font-size: -webkit-xxx-large;
+              position: absolute;
+              top: 69px;
+              right: 426px;
             }
             &__bottom{
-              height:50px;
-              width: 100%;
-              display: flex;
-              align-items: center;
-              margin: auto;
-              font-size: -webkit-xxx-large;
+              height: 50px;
+              width: 230px;
+              display: inline-block;
+              padding: 0.5em 1em;
+              text-decoration: none;
+              background: #668ad8;/*ボタン色*/
+              color: #FFF;
+              border-bottom: solid 4px #627295;
+              border-radius: 3px;
+              position: absolute;
+              right: 360px;
+              bottom: 150px;
             }
           }
         }
