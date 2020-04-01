@@ -31,18 +31,26 @@
           width: 100%;
           display: flex;
           margin-bottom: 5px;
-          .search-text{
-            width: 830px;
-            height: 38px;
+
+          
+        .search-text{
+          width: 830px;
+          height: 38px;
           }
-          .search-btn{
-            width: 36px;
-            border: 0;
+          .header__inner__main-header__seach-box__search-input__search{
             cursor: pointer;
+            width: 40px;
+            padding: 8px;
             background-color: #3CCACE;
-            background-image: url("icon-search1.png");
-            background-size:38px;
-          }
+            padding-bottom: 1px;
+            .search-btn{
+              background-color: #3CCACE;
+              background-image: url("icon-search1.png");
+              background-size:24px;
+              width: 23px;
+              border: 0;
+              }
+            }
         }
       }
     }
