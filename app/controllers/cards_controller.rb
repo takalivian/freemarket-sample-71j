@@ -2,8 +2,8 @@ class CardsController < ApplicationController
   require "payjp"
 
   def new
-    card = Card.where(user_id: current_user.id)
-    redirect_to action: "show" if card.exists?
+    cards = Card.where(user_id: current_user.id)
+    redirect_to action: "show" if cards.exists?
   end
 
   def pay 
@@ -37,13 +37,13 @@ class CardsController < ApplicationController
   end
 
   def show 
-    card = Card.find_by(user_id: current_user.id)
-    if card.blank?
+    cards = Card.find_by(user_id: current_user.id)
+    if cards.blank?
       redirect_to root_path
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      customer = Payjp::Customer.retrieve(card.customer_id)
-      @default_card_information = customer.cards.retrieve(card.card_id)
+      customer = Payjp::Customer.retrieve(cards.customer_id)
+      @default_card_information = customer.cards.retrieve(cards.card_id)
     end
   end
 end

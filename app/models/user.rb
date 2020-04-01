@@ -9,10 +9,6 @@ class User < ApplicationRecord
   has_many :items
   has_many :cards
   has_one :address
-  
-  
-
-
   accepts_nested_attributes_for :address
 
 end
