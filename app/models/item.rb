@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
-  belongs_to :user
   belongs_to :category
+  belongs_to :saler, class_name: "User", optional: true
+  belongs_to :buyer, class_name: "User", optional: true
   has_many :images, dependent: :destroy
   validates :images, :name, :text, :status, :fee, :prefecture_id, :shipping, presence: true
   validates :price, numericality: { greater_than_or_equal_to: 50 }

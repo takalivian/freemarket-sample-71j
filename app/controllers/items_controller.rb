@@ -16,6 +16,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def purchase
+    @item = Item.find(params[:id])
+    @card = Card.where(user_id: current_user.id)
+    unless @card.present?
+      redirect_to new_card_path, method: :get
+    end
+  end
+
   def create
     @item = Item.new(item_params)
     if @item.save
@@ -33,10 +41,6 @@ class ItemsController < ApplicationController
 
   def show
     set_item
-  end
-
-  def purchase
-
   end
 
   def destroy
@@ -61,13 +65,15 @@ class ItemsController < ApplicationController
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
+
   private
   def item_params
-    params.require(:item).permit( :name, :text, :brand, :status, :fee, :prefecture_id, :shipping, :price, images_attributes: [:url]).merge(category_id: params[:category_id],user_id: current_user.id)
+    params.require(:item).permit( :name, :text, :brand, :status, :fee, :prefecture_id, :shipping, :price, images_attributes: [:url]).merge(category_id: params[:category_id], saler_id: current_user.id)
   end
 
   private
   def set_item
     @item = Item.find(params[:id])
   end
+
 end
