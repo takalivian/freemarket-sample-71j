@@ -34,6 +34,4 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
-  before :starting, 'deploy:upload'
-  after :finishing, 'deploy:cleanup'
 end
