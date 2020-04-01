@@ -41,6 +41,9 @@ class ItemsController < ApplicationController
 
   def show
     set_item
+    @item_status = Statushash.find(@item.status)
+    @item_fee = Feehash.find(@item.fee)
+    @item_shipping = Shippinghash.find(@item.shipping)
   end
 
   def destroy
