@@ -3,7 +3,7 @@ class PurchaseController < ApplicationController
   require 'payjp'
 
   def show
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to controller: "card", action: "new"
     else
@@ -16,7 +16,7 @@ class PurchaseController < ApplicationController
   def pay
     @item = Item.find(params[:item_id])
     @item.update( buyer_id: current_user.id)
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
     :amount => @item.price, 

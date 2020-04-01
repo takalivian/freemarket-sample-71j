@@ -25,7 +25,7 @@ class CardsController < ApplicationController
   end
 
   def delete 
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
     else
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
@@ -37,7 +37,7 @@ class CardsController < ApplicationController
   end
 
   def show 
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
     if card.blank?
       redirect_to root_path
     else
