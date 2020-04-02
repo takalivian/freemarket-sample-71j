@@ -48,7 +48,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    item_images = @item.item_images
     grandchild_category = @item.category
     child_category = grandchild_category.parent
 
@@ -110,7 +109,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit( :name, :text, :brand, :status, :category_id, :fee, :prefecture_id, :shipping, :price, images_attributes: [:url]).merge( saler_id: current_user.id)
+    params.require(:item).permit( :name, :text, :brand, :status, :category_id, :fee, :prefecture_id, :shipping, :price, images_attributes: [:_destroy,:id,:url]).merge( saler_id: current_user.id)
   end
 
   private

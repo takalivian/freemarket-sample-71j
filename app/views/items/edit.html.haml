@@ -15,14 +15,21 @@
         .sale-page__sale__sale-image-box__image-form
           #image-box
             #previews
-              -# - if @item.persisted?
-              -#   - @item.images.each_with_index do |image, i|
-              -#     = image_tag image.url.url, data: { index: i }, width: "100", height: '100'
+              - if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  = image_tag image.url.url, data: { index: i }, width: "100", height: '100'
             = form.fields_for :images do |image|
               .js-file_group{"data-index" => "#{image.index}"}
                 = image.file_field :url, class: 'js-file'
                 %br/
                 %span.js-remove 削除
+              - if @item.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.images.count}"}
+                = file_field_tag :url, name: "item[images_attributes][#{@item.images.count}][url]", class: 'js-file'
+                .js-remove 削除
+
       .sale-page__sale__sale-item-box
         .sale-page__sale__sale-item-box__item-top
           .sale-page__sale__sale-item-box__item-top__title-box
@@ -123,7 +130,7 @@
       
       .sale-page__sale__sale-form-box
         .sale-page__sale__sale-form-box__form-up
-          = form.submit :出品する, class: 'post-btn'
+          = form.submit :更新する, class: 'post-btn'
         .sale-page__sale__sale-form-box__form-return
           = link_to root_path do
             もどる
