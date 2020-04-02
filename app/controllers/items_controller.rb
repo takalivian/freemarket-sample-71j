@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :update :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :purchase]
   def index
     @items = Item.order("created_at desc").limit(6)
 
@@ -17,7 +17,6 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @item = Item.find(params[:id])
     @card = Card.where(user_id: current_user.id)
     unless @card.present?
       redirect_to new_card_path, method: :get
@@ -46,7 +45,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     grandchild_category = @item.category
     child_category = grandchild_category.parent
 
@@ -69,7 +67,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to item_path, notice: '投稿が更新されました'
     else
