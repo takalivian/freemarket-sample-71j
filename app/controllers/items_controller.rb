@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :set_item, only: [:show, :update :destroy]
   def index
     @items = Item.order("created_at desc").limit(6)
 
@@ -40,7 +40,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item
     @item_status = Statushash.find(@item.status)
     @item_fee = Feehash.find(@item.fee)
     @item_shipping = Shippinghash.find(@item.shipping)
@@ -85,7 +84,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    set_item
     if @item.destroy
       render :destroy
     else
