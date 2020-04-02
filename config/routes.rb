@@ -9,8 +9,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show]
 
-  resources :items, only: [:index, :new, :create, :show, :update, :destroy] do
+  resources :items, only: [:index, :new, :create, :show, :edit, :update,:destroy] do
     collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+    member do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
@@ -21,7 +25,16 @@ Rails.application.routes.draw do
         post 'done', to: 'purchase#done'
       end
     end
+
   end
+
+  # resources :items, only: [ :edit, :update] do
+  #   member do
+  #     get 'get_category_children', defaults: { format: 'json' }
+  #     get 'get_category_grandchildren', defaults: { format: 'json' }
+  #   end
+  # end
+
 
   resources :cards, only: [:new, :show] do
     collection do
