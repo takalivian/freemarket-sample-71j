@@ -17,8 +17,8 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @card = Card.where(user_id: current_user.id)
-    unless @card.present?
+    @cards = Card.where(user_id: current_user.id)
+    unless @cards.present?
       redirect_to new_card_path, method: :get
     end
   end
