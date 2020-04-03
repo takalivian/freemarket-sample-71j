@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :purchase]
   def index
     @items = Item.order("created_at desc").limit(6)
 
@@ -17,9 +17,8 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    @item = Item.find(params[:id])
-    @card = Card.where(user_id: current_user.id)
-    unless @card.present?
+    @cards = Card.where(user_id: current_user.id)
+    unless @cards.present?
       redirect_to new_card_path, method: :get
     end
   end
@@ -40,14 +39,48 @@ class ItemsController < ApplicationController
   end
 
   def show
-    set_item
     @item_status = Statushash.find(@item.status)
     @item_fee = Feehash.find(@item.fee)
     @item_shipping = Shippinghash.find(@item.shipping)
   end
 
+  def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+
+
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+    
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path, notice: '投稿が更新されました'
+    else
+      @category_parent_array = ["---"]
+      #データベースから、親カテゴリーのみ抽出し、配列化
+      Category.where(ancestry: nil).each do |parent|
+        @category_parent_array << parent.name
+      end
+      flash.now[:alert] = '必須項目を入力してください。'
+      render :edit
+    end
+  end
+
   def destroy
-    set_item
     if @item.destroy
       render :destroy
     else
@@ -71,7 +104,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit( :name, :text, :brand, :status, :fee, :prefecture_id, :shipping, :price, images_attributes: [:url]).merge(category_id: params[:category_id], saler_id: current_user.id)
+    params.require(:item).permit( :name, :text, :brand, :status, :category_id, :fee, :prefecture_id, :shipping, :price, images_attributes: [:_destroy,:id,:url]).merge( saler_id: current_user.id)
   end
 
   private

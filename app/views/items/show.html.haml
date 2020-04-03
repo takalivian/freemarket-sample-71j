@@ -10,7 +10,7 @@
       .details-main__bottom__product__edit-dest
         .details-main__bottom__product__edit-dest__box
           - if user_signed_in? && current_user.id == @item.saler_id
-            = link_to '編集', "#", class: "details-main__bottom__product__edit-dest__box__edit" 
+            = link_to '編集', edit_item_path, class: "details-main__bottom__product__edit-dest__box__edit" 
           - else
         .details-main__bottom__product__edit-dest__box
           - if user_signed_in? && current_user.id == @item.saler_id
@@ -23,7 +23,7 @@
           = image_tag ("#{@item.images[0].url}"), size: "100%x100%", class: "small-img"
         .details-main__bottom__product__img-bottom__picts
           = image_tag ("#{@item.images[1].url}"), size: "100%x100%", class: "small-img"
-        .details-main__bottom__product__img-bottom__picts
+        -# .details-main__bottom__product__img-bottom__picts
           -# = image_tag @item.images[1].url.url, size: "100x100", class: "small-img" // 表示数を変える可能性があるため
       .details-main__bottom__product__img-price 
         = @item.price
