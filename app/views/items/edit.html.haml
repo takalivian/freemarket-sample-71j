@@ -1,0 +1,124 @@
+.sale-page
+  .sale-page__furima-icon
+    = link_to root_path do
+      .sale-page__furima-icon__icon-box
+  .sale-page__sale
+    = form_with(model: @item, local: true)do |form|
+      .sale-page__sale__sale-image-box
+        .sale-page__sale__sale-image-box__title-box
+          .sale-page__sale__sale-image-box__title-box__title
+            出品画像
+          .sale-page__sale__sale-image-box__title-box__required
+            必須
+        .sale-page__sale__sale-image-box__description
+          最大10枚までアップロードできます
+        .sale-page__sale__sale-image-box__image-form
+          #image-box
+            #previews
+              - if @item.persisted?
+                - @item.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+            = form.fields_for :images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :url, class: 'js-file'
+                %br/
+                %span.js-remove 削除
+      .sale-page__sale__sale-item-box
+        .sale-page__sale__sale-item-box__item-top
+          .sale-page__sale__sale-item-box__item-top__title-box
+            .sale-page__sale__sale-item-box__item-top__title-box__title
+              商品名
+            .sale-page__sale__sale-item-box__item-top__title-box__required
+              必須
+          .sale-page__sale__sale-item-box__item-top__text
+            = form.text_field :name, placeholder: "40文字まで" , rows: "40", class: 'item-box'
+        .sale-page__sale__sale-item-box__item-bottom
+          .sale-page__sale__sale-item-box__item-bottom__title-box
+            .sale-page__sale__sale-item-box__item-bottom__title-box__title
+              商品説明
+            .sale-page__sale__sale-item-box__item-bottom__title-box__required
+              必須
+          .sale-page__sale__sale-item-box__item-top__text
+            = form.text_area :text, placeholder: "商品の説明（必須1,000文字以内）　（色、素材、重さ、定価、注意点など）　例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。" , rows: "1000", class: 'remarks-box'
+
+      .sale-page__sale__sale-date-box
+        .sale-page__sale__sale-date-box__date-title
+          商品の詳細
+        .sale-page__sale__sale-date-box__date-top
+          .sale-page__sale__sale-date-box__date-top__title-box
+            .sale-page__sale__sale-date-box__date-top__title-box__title
+              カテゴリー
+            .sale-page__sale__sale-date-box__date-top__title-box__required
+              必須
+          .sale-page__sale__sale-date-box__date-top__text
+            .listing-form-box
+              .listing-product-detail__category
+                = form.label 'カテゴリー', class: 'listing-default__label'
+                %span.listing-default--require 必須
+                .listing-select-wrapper
+                  .listing-select-wrapper__box
+                    = form.select :category, @category_parent_array, {}, {class: 'listing-select-wrapper__box--select', id: 'parent_category'}
+                    %i.fas.fa-chevron-down.listing-select-wrapper__box--arrow-down
+        .sale-page__sale__sale-date-box__date-center
+          .sale-page__sale__sale-date-box__date-center__title-box
+            .sale-page__sale__sale-date-box__date-center__title-box__title
+              ブランド
+            .sale-page__sale__sale-date-box__date-center__title-box__required
+              任意
+          .sale-page__sale__sale-date-box__date-center__text
+            = form.text_field :brand, placeholder: "例）シャネル" , rows: "40", class: 'brand-box'
+        .sale-page__sale__sale-date-box__date-bottom
+          .sale-page__sale__sale-date-box__date-bottom__title-box
+            .sale-page__sale__sale-date-box__date-bottom__title-box__title
+              商品の状態
+            .sale-page__sale__sale-date-box__date-bottom__title-box__required
+              必須
+          .sale-page__sale__sale-date-box__date-bottom__text
+            = form.collection_select :status, Statushash.all, :id, :name,prompt: "選択して下さい", class: 'category-box'
+
+      .sale-page__sale__sale-delivery-box
+        .sale-page__sale__sale-delivery-box__delivery-title
+          配送について
+        .sale-page__sale__sale-delivery-box__delivery-top
+          .sale-page__sale__sale-delivery-box__delivery-top__title-box
+            .sale-page__sale__sale-delivery-box__delivery-top__title-box__title
+              配送料の負担
+            .sale-page__sale__sale-delivery-box__delivery-top__title-box__required
+              必須
+          .sale-page__sale__sale-delivery-box__delivery-top__text
+            = form.collection_select :fee,  Feehash.all, :id, :name,prompt: "選択して下さい" , class: 'fee-box'
+        .sale-page__sale__sale-delivery-box__delivery-center
+          .sale-page__sale__sale-delivery-box__delivery-center__title-box
+            .sale-page__sale__sale-delivery-box__delivery-center__title-box__title
+              発送元の地域
+            .sale-page__sale__sale-delivery-box__delivery-center__title-box__required
+              必須
+          .sale-page__sale__sale-delivery-box__delivery-center__text
+            = form.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
+        .sale-page__sale__sale-delivery-box__delivery-bottom
+          .sale-page__sale__sale-delivery-box__delivery-bottom__title-box
+            .sale-page__sale__sale-delivery-box__delivery-bottom__title-box__title
+              発送までの日数
+            .sale-page__sale__sale-delivery-box__delivery-bottom__title-box__required
+              必須
+          .sale-page__sale__sale-delivery-box__delivery-bottom__text
+            = form.collection_select :shipping, Shippinghash.all, :id, :name,prompt: "選択して下さい", class: 'shipping-box'
+      .sale-page__sale__sale-price-box
+        .sale-page__sale__sale-price-box__price-title
+          価格
+        .sale-page__sale__sale-price-box__title-box
+          .sale-page__sale__sale-price-box__title-box__title
+            販売価格
+          .sale-page__sale__sale-price-box__title-box__required
+            必須
+        .sale-page__sale__sale-price-box__text
+          = form.number_field :price, placeholder: "販売価格を入力して下さい(５０円以上でなければ出品できません)" , class: 'fee-box'
+      
+      .sale-page__sale__sale-form-box
+        .sale-page__sale__sale-form-box__form-up
+          = form.submit :出品する, class: 'post-btn'
+        .sale-page__sale__sale-form-box__form-return
+          = link_to root_path do
+            もどる
+        .sale-page__sale__sale-form-box__form-legend
+          禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

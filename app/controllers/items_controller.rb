@@ -46,6 +46,10 @@ class ItemsController < ApplicationController
     @item_shipping = Shippinghash.find(@item.shipping)
   end
 
+  def edit
+  
+  end
+
   def destroy
     set_item
     if @item.destroy

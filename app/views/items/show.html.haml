@@ -1,7 +1,7 @@
 = render "header"
 .details-main
   .details-main__top
-    -# aaa > aaa > aaa > aaa >
+
 
   .details-main__bottom
     .details-main__bottom__product 
@@ -22,10 +22,10 @@
         .details-main__bottom__product__img-bottom__picts
           = image_tag ("#{@item.images[0].url}"), size: "100%x100%", class: "small-img"
         .details-main__bottom__product__img-bottom__picts
-          = image_tag ("#{@item.images[1].url}"), size: "100%x100%", class: "small-img"
+          = image_tag ("#{@item.images[0].url}"), size: "100%x100%", class: "small-img"
         .details-main__bottom__product__img-bottom__picts
           -# = image_tag @item.images[1].url.url, size: "100x100", class: "small-img" // 表示数を変える可能性があるため
-      .details-main__bottom__product__img-price 
+      .details-main__bottom__product__img-price  
         = @item.price
       .details-main__bottom__product__img-text
         (税込)送料込み
