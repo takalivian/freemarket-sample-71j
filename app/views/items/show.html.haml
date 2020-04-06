@@ -10,7 +10,7 @@
       .details-main__bottom__product__edit-dest
         .details-main__bottom__product__edit-dest__box
           - if user_signed_in? && current_user.id == @item.saler_id
-            = link_to '編集', "#", class: "details-main__bottom__product__edit-dest__box__edit" 
+            = link_to '編集', edit_item_path, class: "details-main__bottom__product__edit-dest__box__edit" 
           - else
         .details-main__bottom__product__edit-dest__box
           - if user_signed_in? && current_user.id == @item.saler_id
