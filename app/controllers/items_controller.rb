@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
         @category_parent_array << parent.name
       end
       flash.now[:alert] = '必須項目を入力してください。'
-      render :new
+      redirect_to new_item_path
     end
   end
 
