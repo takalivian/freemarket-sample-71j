@@ -21,8 +21,8 @@
       align-items: center;
       .header-image{
         width: 150px;
-        height: 55px;
-        margin-right: 50px;
+        height: 45px;
+        margin-right: 36px;
       }
       &__search-box{
         width: 100%;
@@ -36,6 +36,7 @@
         .search-text{
           width: 830px;
           height: 38px;
+          padding: 0 16px;
           }
           .header__inner__main-header__seach-box__search-input__search{
             cursor: pointer;
@@ -749,11 +750,11 @@ a{
 }
 img{
   width: 180px;
-    height: 150px;
+  height: 150px;
 }
 
 .details-main{
-  height: 2600px;
+  height: 2060px;
   width: 100%;
   background-color: #f8f8f8;
   overflow: hidden;
@@ -761,7 +762,7 @@ img{
     height: 40px;
     width: 100%;
     border-bottom: 1px solid #eee;
-    background-color: white;
+    border: 0;
   }
   &__bottom{
     height: 1300px;
@@ -769,7 +770,7 @@ img{
     padding-top: 40px;
     &__product{
       margin: 0 auto;
-      height: 100%;
+      height: 80%;
       width: 40%;
       background-color:#fff;
       padding: 24px 40px 40px;
@@ -802,27 +803,28 @@ img{
     }
       &__img{
         .large-img{
-          width: 100%;
-          height: 300px;
+          padding-left: 90px;
+          width: 80%;
+          height: 200px;
           margin: auto;
           background-repeat: no-repeat;
           background-size: 70%;
           background-position: 50%;
         }
       }
+      .details-main__bottom__product__test{
+        display: flex;
+        justify-content: center;
+      }
       &__img-bottom{
         width: 100%;
         height: 10%;
         display: flex;
-        &__picts{
-          .small-img{
-            margin: auto;
-            height: 80px;
-            background-repeat: no-repeat;
-            background-size: 70%;
-            background-position: 50%;
-          }
-        }
+        justify-content: center;
+      }
+      .small-img{
+        height: 80px;
+        width: 80px;
       }
       &__img-price{
         padding-top: 20px;
@@ -850,7 +852,7 @@ img{
           border: 1px solid #dedede;
           background-color: #f8f8f8;
           height: 60px;
-          width: 152px;
+          width: 190px;
         }
         &__right{
           border: 1px solid #dedede;
@@ -892,7 +894,7 @@ img{
     &__comment{
       margin-top: 10px;
       margin: auto;
-      height: 30%;
+      // height: 30%;
       width: 40%;
       background-color:#fff;
       padding: 24px 40px 40px;
