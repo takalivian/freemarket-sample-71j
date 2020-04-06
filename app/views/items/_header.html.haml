@@ -5,7 +5,7 @@
         = link_to root_path do
           = image_tag "logo.png", class: "header-image"
       .header__inner__main-header__search-box
-        .header__inner__main-header__seach-box__search-input
+        .header__inner__main-header__search-box__search-input
           = form_with(url: "#", local: true, method: :get, class: "search-form") do |form|
             = form.text_field :date, placeholder: "キーワードから探す", class: "search-text"
             .header__inner__main-header__seach-box__search-input__search
