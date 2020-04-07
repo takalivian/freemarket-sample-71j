@@ -33,8 +33,7 @@ class ItemsController < ApplicationController
       Category.where(ancestry: nil).each do |parent|
         @category_parent_array << parent.name
       end
-      flash.now[:alert] = '必須項目を入力してください。'
-      redirect_to new_item_path
+      redirect_to new_item_path, notice: '必須項目を入力してください。'
     end
   end
 
